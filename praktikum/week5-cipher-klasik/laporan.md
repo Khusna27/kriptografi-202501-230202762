@@ -108,7 +108,7 @@ Ciphertext: FODVVLF FLSKHU
 Decrypted : CLASSIC CIPHER
 ```
 
-### Langkah 2 - Implementasi Vigenere Cipher
+### Langkah 2 - Implementasi Vigenère Cipher
 
 ```
 def vigenere_encrypt(plaintext, key):
@@ -361,13 +361,13 @@ Pembahasan : Penerapan caesar cipher pada source code dengan pergeseran huruf se
 
 ![Hasil Eksekusi](screenshots/langkah-2-vignere%20-cipher.png)
 
-Pembahasan : Berdasarkan source code nya penerapan vigenere cipher menggunakan kata kunci "key" untuk pergeseran setiap hurufnya. Jadi huruf pertama digeser berdasar huruf pertama dari "KEY", huruf kedua menggunakan huruf kedua dari "KEY", dan seterusnya. Sehingga penerapannya menjadi plaintext="KRIPTOGRAFI" dengan kunci="KEY" kemudian dienkripsi menjadi "UVGZXMQVYPM" dan dilakukan dekripsi menjadi "KRIPTOGRAFI". Keamanan vigenere cipher lebih baik dibandingkan caesar cipher karena setiap huruf digeser dengan pola berbeda sesuai kunci, namun jika kunci terlalu pendek akan mudah dipecahkan dengan pola analisis seperti penggunaan metode kasiski examination. Jadi sebaiknya penggunaan kunci pada vigenere cipher dibuat lebih panjang dan acak untuk keamanan yang lebih baik. 
+Pembahasan : Berdasarkan source code nya penerapan Vigenère cipher menggunakan kata kunci "key" untuk pergeseran setiap hurufnya. Jadi huruf pertama digeser berdasar huruf pertama dari "KEY", huruf kedua menggunakan huruf kedua dari "KEY", dan seterusnya. Sehingga penerapannya menjadi plaintext="KRIPTOGRAFI" dengan kunci="KEY" kemudian dienkripsi menjadi "UVGZXMQVYPM" dan dilakukan dekripsi menjadi "KRIPTOGRAFI". Keamanan vigenere cipher lebih baik dibandingkan caesar cipher karena setiap huruf digeser dengan pola berbeda sesuai kunci, namun jika kunci terlalu pendek akan mudah dipecahkan dengan pola analisis seperti penggunaan metode kasiski examination. Jadi sebaiknya penggunaan kunci pada Vigenère cipher dibuat lebih panjang dan acak untuk keamanan yang lebih baik. 
 
 ### 3. Transpos Cipher
 
 ![Hasil Eksekusi](screenshots/langkah3-transposisi-sederhana.png)
 
-Pembahasan :Penerapan transpose cipher tidak mengubah hurufnya melainkan mengubah urutan posisi huruf. Seperti penerapan pada source code dengan palintext "TRANSPOSITIONCIPHER" kemudian dienkripsi dengan key="5" menjadi "TPIRPOHOASNENICRSTI" dan pada saat dilakukan dekripsi kembali menjadi teks asli yaitu "TRANSPOSITIONCIPHER". Jika dibandingkan dengan caesar cipher dan vigenere cipher keamanan pada transpose cipher lebih baik karena enkripsi akan sulit dibaca tanpa mengetahui kuncinya, namun jika panjang pesan dan panjang kunci diketahui akan mudah untuk dianalisis. Jadi sebaiknya transpose cipher tidak digunakan sendiri melainkan dikombinasikan dengan cipher lain seperti caesar maupun vigenere cipher supaya keamanannya jauh lebih kuat.
+Pembahasan :Penerapan transpose cipher tidak mengubah hurufnya melainkan mengubah urutan posisi huruf. Seperti penerapan pada source code dengan palintext "TRANSPOSITIONCIPHER" kemudian dienkripsi dengan key="5" menjadi "TPIRPOHOASNENICRSTI" dan pada saat dilakukan dekripsi kembali menjadi teks asli yaitu "TRANSPOSITIONCIPHER". Jika dibandingkan dengan caesar cipher dan vigenere cipher keamanan pada transpose cipher lebih baik karena enkripsi akan sulit dibaca tanpa mengetahui kuncinya, namun jika panjang pesan dan panjang kunci diketahui akan mudah untuk dianalisis. Jadi sebaiknya transpose cipher tidak digunakan sendiri melainkan dikombinasikan dengan cipher lain seperti caesar maupun Vigenère cipher supaya keamanannya jauh lebih kuat.
 
 ### 4. Hasil eksekusi program uji coba
 
