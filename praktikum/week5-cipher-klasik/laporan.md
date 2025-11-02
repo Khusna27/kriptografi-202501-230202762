@@ -68,9 +68,11 @@ Keamanannya meningkat jika dikombinasikan dengan cipher substitusi seperti Caesa
 
 ## 4. Langkah Percobaan
 
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `caesar.py`, `vigenere.py` dan `transpose.py` di folder `praktikum/week5-cipher-klasik/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python caesar.py`,`vigenere.py` dan `transpose.py` .
+4. Membuat folder screenshot lalu mengaploud `hasil.png`.
+5. Mengerjakan tugas pertanyaan.
 
 ---
 
@@ -390,25 +392,19 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Ketiga algoritma berhasil melakukan proses enkripsi dan dekripsi dengan benar sehingga setiap ciphertext yang dihasilkan dapat dikembalikan menjadi plaintext asli menggunakan kunci yang sama. Penggunaan caesar cipher terbukti paling sederhana namun mudah dipecahkan, Vigenère cipher memberikan keamanan lebih baik dengan penggunaan kunci sedangkan transposisi mengacak urutan huruf untuk menambah tingkat keamanan pesan.
 
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
-
+- Utomo, I. W., Latifah, R., & Risanty, D. (n.d.). APLIKASI KRIPTOGRAFI BERBASIS ANDROID MENGGUNAKAN ALGORITMA CAESAR CIPHER DAN VIGENERE CIPHER.
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
 ```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+commit week5-cipher-klasik
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2025-11-2
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week5 - Cipher Klasik (Caesar, Vigenère, Transposisi) 
 ```
