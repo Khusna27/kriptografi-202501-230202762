@@ -17,7 +17,8 @@ Kelas: 5IKRB
 
 ## 2. Dasar Teori
 
-### 1. Caesar Cipher adalah algoritma enkripsi substitusi paling sederhana yang ditemukan oleh Julius Caesar. Metode ini mengenkripsi teks dengan menggeser setiap huruf sejauh nilai kunci tertentu.  
+### 1. Caesar Cipher 
+Caesar Cipher adalah algoritma enkripsi substitusi paling sederhana yang ditemukan oleh Julius Caesar. Metode ini mengenkripsi teks dengan menggeser setiap huruf sejauh nilai kunci tertentu.  
 Contohnya, jika kunci = 3, maka huruf A → D, B → E, dan seterusnya.
 Rumus :
 C = (P + K) mod 26
@@ -26,26 +27,47 @@ Keterangan:
 - `P` = plaintext (huruf asli)  
 - `C` = ciphertext (huruf hasil enkripsi)  
 - `K` = kunci pergeseran  
-Metode ini mudah dipahami dan diimplementasikan, tetapi keamanannya rendah karena pola huruf masih bisa ditebak melalui analisis frekuensi.
+Metode ini mudah dipahami dan diimplementasikan, namun keamanannya sangat kurangpp karena pola huruf masih bisa ditebak melalui analisis frekuensi.
 
 ---
 ### 2. Vigenère Cipher
 Vigenère Cipher merupakan pengembangan dari Caesar Cipher yang menggunakan kata kunci (key) untuk menentukan jumlah pergeseran pada tiap huruf. Setiap huruf digeser berdasarkan nilai karakter dalam kunci, sehingga pola pergeseran berubah-ubah dan lebih sulit ditebak.
 Rumus:
+Cᵢ = (Pᵢ + Kᵢ) mod 26
+Pᵢ = (Cᵢ - Kᵢ) mod 26
+
+Metode ini lebih aman daripada Caesar Cipher karena bersifat polialfabetik, namun masih dapat diserang jika kuncinya pendek atau berulang.
+
+---
+
+## 3. Transposisi Cipher
+Transposisi Cipher tidak mengganti huruf pada teks, tetapi mengubah urutannya berdasarkan pola atau kunci tertentu.  
+Contohnya adalah Columnar Transposition, di mana huruf plaintext ditulis ke dalam tabel lalu dibaca per kolom untuk membentuk ciphertext.
+Rumus :
+C = T(P, K)
+P = T⁻¹(C, K)
+
+Keterangan :
+- `P` = plaintext (teks asli)  
+- `C` = ciphertext (hasil enkripsi)  
+- `K` = kunci (jumlah kolom atau urutan pola)  
+- `T` = fungsi transposisi (pengaturan ulang posisi huruf) 
+
+Metode ini tidak mengubah bentuk huruf, namun membuat susunan teks menjadi acak.  
+Keamanannya meningkat jika dikombinasikan dengan cipher substitusi seperti Caesar atau Vigenère.
 
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+- Python 3.x  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Google Schollar
 
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
+
 1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
 2. Menyalin kode program dari panduan praktikum.
 3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
