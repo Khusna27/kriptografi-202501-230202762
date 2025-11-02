@@ -16,8 +16,22 @@ Kelas: 5IKRB
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+
+### 1. Caesar Cipher adalah algoritma enkripsi substitusi paling sederhana yang ditemukan oleh Julius Caesar. Metode ini mengenkripsi teks dengan menggeser setiap huruf sejauh nilai kunci tertentu.  
+Contohnya, jika kunci = 3, maka huruf A → D, B → E, dan seterusnya.
+Rumus :
+C = (P + K) mod 26
+P = (C - K) mod 26
+Keterangan: 
+- `P` = plaintext (huruf asli)  
+- `C` = ciphertext (huruf hasil enkripsi)  
+- `K` = kunci pergeseran  
+Metode ini mudah dipahami dan diimplementasikan, tetapi keamanannya rendah karena pola huruf masih bisa ditebak melalui analisis frekuensi.
+
+---
+### 2. Vigenère Cipher
+Vigenère Cipher merupakan pengembangan dari Caesar Cipher yang menggunakan kata kunci (key) untuk menentukan jumlah pergeseran pada tiap huruf. Setiap huruf digeser berdasarkan nilai karakter dalam kunci, sehingga pola pergeseran berubah-ubah dan lebih sulit ditebak.
+Rumus:
 
 ---
 
@@ -335,14 +349,22 @@ Pembahasan :Penerapan transpose cipher tidak mengubah hurufnya melainkan menguba
 
 ![Hasil Eksekusi](screenshots/hasil.png)
 
+Pembahasan : Secara keseluruhan, hasil percobaan menunjukan keberhasilan dalam penerapannya. Seperti pada gambar diatas dengan mengubah plaintext menjadi "ILMU KOMPUTER" kemudian diterapkan pada ketiga algoritma semuanya berjalan dengan baik atau dengan kata lain plaintext dapat dienkripsi dan kemudian di dekripsi kembali ke bentuk yang asli dengan kunci yang sesuai.
 
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+
+1. Apa kelemahan utama algoritma Caesar Cipher dan Vigenère Cipher?  
+2. Mengapa cipher klasik mudah diserang dengan analisis frekuensi?  
+3. Bandingkan kelebihan dan kelemahan cipher substitusi vs transposisi.  
+
+Jawaban :
+1. Kelemahan caesar cipher adalah terlalu sederhana dan mudah ditebak karena hanya menggunakan satu nilai geser dengan 25 kemungkinan percobaan. Selain itu karena hanya ada ada 25 kemungkinan percobaan maka pola huruf mudah ditebak dengan analisis frekuensi dan sangat rentan terhadap serangan brute force. Sedangkan kelemahan  Vigenère cipher terletak pada panjangnya kunci, meskipun lebih kuat dari pada caesar cipher karena bersifat polialfabetik jika kunci terlalu pendek pola nya akan lebih mudah untuk ditebak dan diserang menggunakan metode seperti kasiski examination.
+
+2. Cipher klasik mudah diserang dengan analisis frekuensi karena tidak mengubah pola kemunculan huruf dalam teks. Contohnya dalam setiap bahasa, terdapat pola frekuensi huruf yang khas seperti penggunaan bahasa Indonesia frekuensi huruf "A" lebih sering muncul sehingga pola kemunculannya mudah ditebak dengan pola distribusi. Selain itu penyerang juga dapat membandingkan frekuensi kemunculan huruf pada ciphertext dengan pola frekuensi umum suatu bahasa untuk menebak huruf-huruf yang disubstitusi.
+
+3. Chiper substitusi bekerja dengan mengganti setiap huruf pada text menjadi huruf lain berdasarkan aturan kunci tertentu. Sedangkan transposisi tidak mengganti huruf, melainkan mengubah urutan huruf dalam teks sehingga pesan sulit dibaca tanpa kunci yang benar. Kelebihan cipher substitusi yaitu proses enkripsi sederhana dan cepat sehingga cocok untuk menjelaskan konsep dasar kriptografi sedangkan kelemahannya yaitu pola huruf mudah ditebak dengan analisis frekuensi dan keamananya rendah jika tidak di kombinasikan dengan algoritma lain. Sedangkan kelebihan transposisi adalah huruf asli tidak diganti melainkan hanya posisinya saja yang diacak sehingga pola huruf lebih sulit untuk dikenali dan lebih kuat jika dikombinasikan dengan cipher substitusi dan kelemahannya jika kunci atau pola pengacakan diketahui maka pesan mudah dipecahkan dan kurang efektif jika digunakan sendiri tanpa variasi pola.
 ---
 
 ## 8. Kesimpulan
