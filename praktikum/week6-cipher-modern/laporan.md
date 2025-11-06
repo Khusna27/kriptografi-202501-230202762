@@ -15,17 +15,16 @@ Kelas: 5IKRB
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
-
+1. DES (Data Encryption Standard), merupakan algoritma enkripsi simetris dengan panjang kunci 56-bit dan ukuran blok 64-bit serta melibatkan 16 putaran enkripsi yang menggunakan permutasi dan substitusi.
+2. AES (Advanced Encryption Standard), digunakan untuk menggantikan DES sebagai standar enkripsi blok dengan ukuran blok 128-bit dan panjang kunci yang dapat berupa 128-bit, 192-bit, atau 256-bit. Memiliki putaran yang berbeda berdasarkan panjang kunci (10, 12, atau 14 putaran). Langkah-langkah utama meliputi AddRoundKey, SubBytes, ShiftRows, MixColumns.
+3. RSA (Rivest hamir Adleman), merupakan algoritma asimetris dengan kunci publik untuk enkripsi dan kunci privat untuk dekripsi. Sering digunakan untuk tanda tangan digital.
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+- Python 3.x  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
-
+- Google Chrome
 ---
 
 ## 4. Langkah Percobaan
