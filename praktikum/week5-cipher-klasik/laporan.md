@@ -17,7 +17,7 @@ Kelas: 5IKRB
 
 ## 2. Dasar Teori
 
-### 1. Caesar Cipher 
+1. Caesar Cipher 
 Caesar Cipher adalah algoritma enkripsi substitusi paling sederhana yang ditemukan oleh Julius Caesar. Metode ini mengenkripsi teks dengan menggeser setiap huruf sejauh nilai kunci tertentu.  
 Contohnya, jika kunci = 3, maka huruf A → D, B → E, dan seterusnya.
 Rumus :
@@ -30,7 +30,7 @@ Keterangan:
 Metode ini mudah dipahami dan diimplementasikan, namun keamanannya sangat kurangpp karena pola huruf masih bisa ditebak melalui analisis frekuensi.
 
 ---
-### 2. Vigenère Cipher
+2. Vigenère Cipher
 Vigenère Cipher merupakan pengembangan dari Caesar Cipher yang menggunakan kata kunci (key) untuk menentukan jumlah pergeseran pada tiap huruf. Setiap huruf digeser berdasarkan nilai karakter dalam kunci, sehingga pola pergeseran berubah-ubah dan lebih sulit ditebak.
 Rumus:
 Cᵢ = (Pᵢ + Kᵢ) mod 26
@@ -39,8 +39,7 @@ Pᵢ = (Cᵢ - Kᵢ) mod 26
 Metode ini lebih aman daripada Caesar Cipher karena bersifat polialfabetik, namun masih dapat diserang jika kuncinya pendek atau berulang.
 
 ---
-
-## 3. Transposisi Cipher
+3. Transposisi Cipher
 Transposisi Cipher tidak mengganti huruf pada teks, tetapi mengubah urutannya berdasarkan pola atau kunci tertentu.  
 Contohnya adalah Columnar Transposition, di mana huruf plaintext ditulis ke dalam tabel lalu dibaca per kolom untuk membentuk ciphertext.
 Rumus :
