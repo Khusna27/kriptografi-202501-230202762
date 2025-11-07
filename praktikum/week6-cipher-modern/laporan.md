@@ -112,18 +112,118 @@ Decrypted: RSA Example
 ```
 ---
 
+4. Hasil Implementasi ketiganya
+```
+#==== IMPLEMENTASI AES (Advanced Encryption Standard) ===
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+
+#AES menggunakan kunci 128 bit (16 byte)
+key = get_random_bytes(16)
+cipher = AES.new(key, AES.MODE_EAX)
+
+#Data yang akan dienkripsi
+plaintext = b"ILMU KOMPUTER"
+
+#Enkripsi AES (menghasilkan ciphertext dan tag autentikasi)
+ciphertext, tag = cipher.encrypt_and_digest(plaintext)
+
+print("=== IMPLEMENTASI AES ===")
+print("Kunci (Key):", key)
+print("Nonce:", cipher.nonce)
+print("Ciphertext:", ciphertext)
+print("Tag:", tag)
+
+#Dekripsi AES
+cipher_dec = AES.new(key, AES.MODE_EAX, nonce=cipher.nonce)
+decrypted = cipher_dec.decrypt(ciphertext)
+print("Decrypted:", decrypted.decode())
+print("\n")
+
+
+#=== IMPLEMENTASI DES (Data Encryption Standard) ===
+from Crypto.Cipher import DES
+from Crypto.Random import get_random_bytes
+
+#DES menggunakan kunci 64 bit (8 byte)
+key = get_random_bytes(8)
+cipher = DES.new(key, DES.MODE_ECB)
+
+#Data harus kelipatan 8 byte untuk mode ECB
+plaintext = b"UNIVERSITAS PUTRA BANGSA"
+
+#Karena panjang plaintext bukan kelipatan 8, tambahkan padding manual
+while len(plaintext) % 8 != 0:
+    plaintext += b' '  # padding spasi
+
+#Enkripsi DES
+ciphertext = cipher.encrypt(plaintext)
+
+print("=== IMPLEMENTASI DES ===")
+print("Kunci (Key):", key)
+print("Ciphertext:", ciphertext)
+
+#Dekripsi DES
+decipher = DES.new(key, DES.MODE_ECB)
+decrypted = decipher.decrypt(ciphertext)
+print("Decrypted:", decrypted.strip())
+print("\n")
+
+#=== IMPLEMENTASI RSA (Rivest-Shamir-Adleman) ===
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+#Generate pasangan kunci RSA (private & public)
+key = RSA.generate(2048)
+private_key = key
+public_key = key.publickey()
+
+#Enkripsi RSA menggunakan public key
+cipher_rsa = PKCS1_OAEP.new(public_key)
+plaintext = b"Khusnatun Lina Fitri"
+ciphertext = cipher_rsa.encrypt(plaintext)
+
+print("=== IMPLEMENTASI RSA ===")
+print("Public Key:", public_key.export_key())
+print("Ciphertext:", ciphertext)
+
+#Dekripsi RSA menggunakan private key
+decipher_rsa = PKCS1_OAEP.new(private_key)
+decrypted = decipher_rsa.decrypt(ciphertext)
+print("Decrypted:", decrypted.decode())
+```
+---
+Hasilnya :
+```
+=== IMPLEMENTASI AES ===
+Kunci (Key): b'\xad\x8d\xc8\x1e|\xac\xfd\xf3\xe7H\r\x822\x93Em'
+Nonce: b'p`\x03^\xe8\x8fc\xa5\x1f\xf5\xf3N5\xa2\xae\xf6'
+Ciphertext: b'\xe4\x9b\xc6\xd7\xd5\xcd\xb4\x08J\xb9\x88.\xa4'
+Tag: b'E\x16\xd6\x08\n\x00\xe2Zf,\xd0\xb1\xcbw&P'
+Decrypted: ILMU KOMPUTER
+
+=== IMPLEMENTASI DES ===
+Kunci (Key): b']\x10\xe4x\xb5\x9dGw'
+Ciphertext: b'o\xa57\xb56\xa1\xd7\xb68Z\x9a\xb7f\xc1\x01\x04\x93\x9cZ#\n\x84\xe4\x8d'
+Decrypted: b'UNIVERSITAS PUTRA BANGSA'
+
+=== IMPLEMENTASI RSA ===
+Public Key: b'-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz7Ns4JxuTEOh675LHvuB\nw+eKHw9sWMekHdd9a1jectXs47vSn4GspOINIvwcunyzvnFFPRO4e9e9+NsVbeHy\n0qzBmbL87uVRsiF35B2tDFv6RhppcPmNJQ8xGFzN6RTsakOaZkof2fVBtuv9RsFb\n1BU8BBxNmfhqLt/txuhVj4BuAta5VatpNvebXMRpUjvBC4w/Y3weqhz2R501uxHb\neUqmxMN6APRhQyapZcoB6mbcHxqeiyxWlEbl72025BfTJMxl4clznibCc4jARzxP\nQTp5bJumo+Dj623T3sOoDtPqbpZdYzAVyk5VMRraV+WRJ95rTU128EFNe5cWfIiZ\nDQIDAQAB\n-----END PUBLIC KEY-----'
+Ciphertext: b'3\xa1Pa\xbfs\xb7\x95T }"\xe44-[\xdd\x04v\xb5b\x93\x7f\x16X\xe1\x0eW\xd5\xe1\xc9X\xcb\x96\xd1\x01\x85\x8a\xce\x8b\x82\x9f\x97Fa\xaf\x8b`\xa3\x14F\x13\xdav\n\xd2\xf8_l\xacb\x02\x03\xef]C6U<\x95o\x8b\xa5K\xce42P\xe9\xef\xe2\x9bi\x98\x86\x10\xfaD\xe9H\x85\x07\xe7\xde\xfa\xd2r\xe1\x04g\xecc\xb3\x17v\xa1\xd5\xe6LW\x1dZ\xd6\xc8\x05\xf9i^j/.\xf6\xa4\xc6]@\x90\xc7\xd4J\x16\x96J\x16\xfd+f5\xcc\xa5\xf3\xd2\xf92\x8f<~\x97\xb8sG\x1a\xec\x9b\xa2l\x12\xd0u!QA\xe5\xfaT\x9aF\xc2\x86\xfe\xd1\xd7E`x\xff)/u\x8fH\xbe\xccr\x0b\x87#\xdfp\xc4\xb6\xd8\x061C\xae"\xbc\xb6*\x90\x17\x8c\x14d!\x1e\xd8\x92\xf9\x98\xb5\xa3\xd7%\xa2L\x9bv\x14\xd1\x11\xed\xb1\xa5\xdb\x98%\xc2\xd6V\xafV\xda0\xc1 \xe90@\xcc\xe1\x80/\x81\xbc\x0f\xf3\xcd\xfd\x1f\x04ic=$'
+Decrypted: Khusnatun Lina Fitri 
+```
+---
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program DES, AES, dan RSA : 
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/hasil.png)
+
+Pembahasan :
+Pada praktikum ini, saat ketiga algoritma dijalankan semua berjalan sesuai ekspetasi dengan proses enkripsi dan dekripsi berhasil tanpa eror serta hasil yang diperoleh sesuai dengan teori kriptografi yang digunakan setelah menginstall library tambahan `pip install pycryptodome`. 
+
+1. Pada algoritma AES, digunakan kunci 128 bit dengan mode AEX. Hasil enkripsi menghasilkan data acak dengan plaintext *ILMU KOMPUTER* dan kemudian dapat dienkripsi menjadi *dan didekripsi dengan baik 
+
 
 ---
 
