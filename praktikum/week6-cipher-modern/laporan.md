@@ -222,16 +222,17 @@ Hasil eksekusi program DES, AES, dan RSA :
 Pembahasan :
 Pada praktikum ini, saat ketiga algoritma dijalankan semua berjalan sesuai ekspetasi dengan proses enkripsi dan dekripsi berhasil tanpa eror serta hasil yang diperoleh sesuai dengan teori kriptografi yang digunakan setelah menginstall library tambahan `pip install pycryptodome`. 
 
-1. Pada algoritma AES, digunakan kunci 128 bit dengan mode AEX. Hasil enkripsi menghasilkan data acak dengan plaintext *ILMU KOMPUTER* dan kemudian dapat dienkripsi menjadi *dan didekripsi dengan baik 
-
+1.Algoritma DES menggunakan kunci 64 bit dengan mode ECB. Karena mode ini membutuhkan panjang data kelipatan 8 byte maka dilakukan padding dengan menambahkan spasi. Sehingga hasil enkripsi dan dekirpsi dengan plaintext **UNIVERSITAS PUTRA BANGSA** berhasil dipulihkan meskipun mode ECB kurang aman dalam penggunaan yang nyata.Selain itu penggunaan huruf `b` pada plaintext untuk memberikan tanda bahwa text tersebut bukan string biasa melainkan deretan byte.
+2. Pada algoritma AES, digunakan kunci 128 bit dengan mode AEX. Hasil enkripsi menghasilkan data acak dengan plaintext **ILMU KOMPUTER** dan kemudian dapat dienkripsi dan didekripsi dengan baik. Penggunaan huruf `b` pada plaintext untuk memberikan tanda bahwa text tersebut bukan string biasa melainkan deretan byte.
+3. Implementasi pada algoritma RSA sebagai algoritma asimetris dengan penggunaan public key dan privat key berhasil meng enkripsi dan mendekripsi plaintext **KHUSNATUN LINA FITRI** dengan benar.
 
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+1. Apa perbedaan mendasar antara DES, AES, dan RSA dalam hal kunci dan keamanan?
+2. Mengapa AES lebih banyak digunakan dibanding DES di era modern?
+3. Mengapa RSA dikategorikan sebagai algoritma asimetris, dan bagaimana proses pembangkitan kuncinya?
+
 ---
 
 ## 8. Kesimpulan
@@ -248,12 +249,11 @@ Contoh:
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week6-cipher-modern
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2025-11-08
+
+   week6-cipher-modern: Cipher Modern (DES, AES, RSA)
 ```
