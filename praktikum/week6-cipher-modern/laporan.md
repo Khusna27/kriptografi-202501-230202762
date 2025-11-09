@@ -29,12 +29,11 @@ Kelas: 5IKRB
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
-2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
 
+1. Membuat file `aes.py` , `des.py`, `rsa.py` di folder `praktikum/week6-cipher-modern/src/`.
+2. Menyalin kode program dari panduan praktikum.
+3. Membuat folder screenshots dan mengaploud file `hasil.png`
+4. Mengerjakan soal .
 ---
 
 ## 5. Source Code
@@ -235,16 +234,60 @@ Pada praktikum ini, saat ketiga algoritma dijalankan semua berjalan sesuai ekspe
 2. Mengapa AES lebih banyak digunakan dibanding DES di era modern?
 3. Mengapa RSA dikategorikan sebagai algoritma asimetris, dan bagaimana proses pembangkitan kuncinya?
 
+Jawaban :
+1. **DES** merupakan algoritma kunci simetris dimana kunci untuk enkripsi dan dekripsi sama. Menggunakan kunci 56 bit sehingga prosesnya cepat digunakan namun tidak aman sehingga rentan terhadap serangan brute force. Biasnaya digunakan pada sistem lama. **AES** masih termasuk algoritma simetris namun lebih kuat dibandingkan DES. Menggunakan panjang kunci 128, 192, 256 bit sehingga cocok untuk pengolahan data besar. Sejauh ini belum ada serangan praktis yang berhasil. Biasanya digunakan pada jaringan Wi-Fi, VPN dan lainnya. Sedangkan **RSA** menggunakan algoritma asimetris dimana kunci publik untuk proses enkripsi dan privat untuk dekripsi. Ukuran panjang kunci 1024-4096 bit sehingga sangat aman, tetapi lebih lambat dalam penggunaanya karena menggunakan operasi matematika besar. Sering digunakan untuk tanda tangan digital.
+
+2. Karena AES memiliki panjang kunci yang jauh lebih besar dibandingkan DES yaitu 128 bit sehingga mustahil dipecahkan dengan brute force oleh komputer modern. Selain itu AES juga dioptimalkan untuk perangkat keras dan perangkat lunak modern, sehingga jauh lebih cepat dibandingkan algoritma lain. AES juga digunakan hampir di semua sistem keamanan modern seperti Wi-Fi , VPN dan enkripsi file ZIP.
+
+3. RSA disebut algoritma asimetris karena menggunakan dua kunci yang berbeda, kunci publik untuk enkripsi dan kunci privat untuk dekripsi. Artinya data dienkripsi menggunakan kunci publik dan hanya bisa dibuka menggunkaan kunci privat.
+
+Proses pembangkitan kuncinya :
+
+a. Pilih dua bilangan prima besar, misalnya p dan q.
+
+b.Hitung modulus : n = p x q (nilai n digunakan dalam kunci publik dan privat).
+
+c. Hitung fungsi totien : ϕ(n)=(p−1)(q−1)
+
+d. Pilih eksponen publik `e`, yang relatif prima terhadap φ(n) (biasanya 65537).
+
+e. Hitung eksponen privat `d` :
+
+d≡e−1(modϕ(n))
+
+Artinya `d` adalah invers dari e terhadap φ(n).
+
+f. Hasil akhir : 
+- Kunci publik = `(e, n)`
+- Kunci privat `(d, n)`
+
+Ilustrasi singkat : 
+
+p = 17 dan q = 11
+
+n = 17 x 11 = 187
+
+φ(n) = 160
+
+Pilih e = 7
+
+Hitung d = 23 (karena 7 x 23 = 1 (mod 160))
+
+Jadi :
+
+- Kunci publik ( 7, 187 )
+
+- Kunci privat ( 23, 187 )
+
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+DES, AES, dan RSA berbeda dalam jenis algoritma dan keamanan. DES sudah tidak digunakan karena kunci 56 bit mudah diretas sehingga AES menjadi standar keamanan baru karena lebih aman dan efisien dengan ukuran kunci hingga 256 bit. Sedangkan RSA termasuk algoritma asimetris karena menggunakan dua kunci berbeda untuk menjaga keamanan datanya dan biasanya digunakan untuk tanda tangan digital.
 
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
+
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
 - Stallings, W. *Cryptography and Network Security*.  )
 
