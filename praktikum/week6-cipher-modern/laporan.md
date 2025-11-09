@@ -222,8 +222,10 @@ Hasil eksekusi program DES, AES, dan RSA :
 Pembahasan :
 Pada praktikum ini, saat ketiga algoritma dijalankan semua berjalan sesuai ekspetasi dengan proses enkripsi dan dekripsi berhasil tanpa eror serta hasil yang diperoleh sesuai dengan teori kriptografi yang digunakan setelah menginstall library tambahan `pip install pycryptodome`. 
 
-1.Algoritma DES menggunakan kunci 64 bit dengan mode ECB. Karena mode ini membutuhkan panjang data kelipatan 8 byte maka dilakukan padding dengan menambahkan spasi. Sehingga hasil enkripsi dan dekirpsi dengan plaintext **UNIVERSITAS PUTRA BANGSA** berhasil dipulihkan meskipun mode ECB kurang aman dalam penggunaan yang nyata.Selain itu penggunaan huruf `b` pada plaintext untuk memberikan tanda bahwa text tersebut bukan string biasa melainkan deretan byte.
+1. Algoritma DES menggunakan kunci 64 bit dengan mode ECB. Karena mode ini membutuhkan panjang data kelipatan 8 byte maka dilakukan padding dengan menambahkan spasi. Sehingga hasil enkripsi dan dekirpsi dengan plaintext **UNIVERSITAS PUTRA BANGSA** berhasil dipulihkan meskipun mode ECB kurang aman dalam penggunaan yang nyata.Selain itu penggunaan huruf `b` pada plaintext untuk memberikan tanda bahwa text tersebut bukan string biasa melainkan deretan byte.
+   
 2. Pada algoritma AES, digunakan kunci 128 bit dengan mode AEX. Hasil enkripsi menghasilkan data acak dengan plaintext **ILMU KOMPUTER** dan kemudian dapat dienkripsi dan didekripsi dengan baik. Penggunaan huruf `b` pada plaintext untuk memberikan tanda bahwa text tersebut bukan string biasa melainkan deretan byte.
+   
 3. Implementasi pada algoritma RSA sebagai algoritma asimetris dengan penggunaan public key dan privat key berhasil meng enkripsi dan mendekripsi plaintext **KHUSNATUN LINA FITRI** dengan benar.
 
 ---
