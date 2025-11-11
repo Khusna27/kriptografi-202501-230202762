@@ -1,20 +1,23 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 7 
+Topik: Diffie-Hellman Key Exchange
+Nama: Khusnatun Lina Fitri
+NIM: 230202762 
+Kelas: 5IKRB
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+1. Melakukan simulasi protokol **Diffie-Hellman** untuk pertukaran kunci publik.  
+2. Menjelaskan mekanisme pertukaran kunci rahasia menggunakan bilangan prima dan logaritma diskrit.  
+3. Menganalisis potensi serangan pada protokol Diffie-Hellman (termasuk serangan **Man-in-the-Middle / MITM**).  
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+Protokol Diffie-Hellman Key Exchange adalah salah satu metode kriptografi paling awal yang memungkinkan dua pihak untuk membangun kunci rahasia bersama melalui saluran komunikasi publik tanpa perlu mengirimkan kunci itu secara langsung. Prinsip kerja Diffie-Hellman berdasarkan pada masalah logaritma diskrit, yaitu kesulitan menghitung nilai eksponen rahasia dari hasil perpangkatan modular, sehingga kunci publik dapat diketahui dan kunci privat tetap aman.
+
+Dalam prosesnya, kedua pihak menyepakati dua bilangan publik yaitu bilangan prima besar 𝑝 dan generator 𝑔. Masing-masing pihak
 
 ---
 
@@ -64,10 +67,13 @@ Hasil eksekusi program Caesar Cipher:
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+1. Mengapa Diffie-Hellman memungkinkan pertukaran kunci di saluran publik?  
+2. Apa kelemahan utama protokol Diffie-Hellman murni?  
+3. Bagaimana cara mencegah serangan MITM pada protokol ini?
+
+Jawaban : 
+1. Karena protokol Diffie-Hellman menggunakan konsep matematika eksponensial modular yang membuat pihak ketiga sulit menghitung kunci rahasia bersamaa (shared key) meskipun semua nilai yang dikirim lewat jaringan yang diketahui publik.
+
 ---
 
 ## 8. Kesimpulan
