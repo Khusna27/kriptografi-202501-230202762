@@ -126,6 +126,19 @@ Kunci Eve dengan Bob          : 1
 ```
 Penjelasan simulasi : 
 
+Dalam simulasi Diffie–Hellman , Alice dan Bob tidak saling mengenali identitas pihak yang mengirim public key. Hal ini dimanfaatkan Eve untuk:
+1. Mencegat public key Alice dan Bob
+2. Mengganti keduanya dengan public key miliknya
+3. Alice menghitung kunci rahasia dengan Eve
+4. Bob menghitung kunci rahasia dengan Eve
+5. Eve mendapatkan:
+- Kunci rahasia antara Alice ↔ Eve
+- Kunci rahasia antara Bob ↔ Eve
+Akibatnya:
+- Alice dan Bob tidak pernah memiliki kunci yang sama
+- Eve dapat membaca, mengubah, atau meneruskan pesan tanpa ketahuan
+Inilah kelemahan utama Diffie–Hellman murni tanpa autentikasi.
+
 ---
 
 ## 6. Hasil dan Pembahasan
