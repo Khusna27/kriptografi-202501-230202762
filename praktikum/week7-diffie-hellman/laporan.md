@@ -24,25 +24,26 @@ Namun Diffie-Hellman tetap memiliki kelemahan yaitu rentan terhadap Man in the m
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+- Python 3.x  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Google Chrome
 
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `diffie_hellman.py` di folder `praktikum/week7-diffie-hellman/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `pythondiffie_hellman.py`.)
+4. Membuat folder `screenshots` dan mengaploud file `hasil.jpg` pada folder `praktikum/week7-diffie-hellman/sreenshots/`.
+5. Menjawab analisis serangan MITM.
+6. Mengerjakan soal yang ada pada folder `praktikum/week7-diffie-hellman/laporan.md/`
 
 ---
 
 ## 5. Source Code
 
-### Langkah 1:
+### Langkah 1:  Simulasi Diffie-Hellman
 
 ```
 import random
@@ -71,7 +72,7 @@ Hasilnya :
 Kunci bersama Alice : 13
 Kunci bersama Bob   : 13
 ```
-### Langkah 2 : 
+### Langkah 2 : Analisis Serangan MITM (Man-in-the-Middle)
 ```
 import random
 
@@ -142,17 +143,27 @@ Inilah kelemahan utama Diffie–Hellman murni tanpa autentikasi.
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program Diffie-Hellman :
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/hasil.JPG)
+
+Pembahasan :
+Algoritma Diffie-Hellman berhasil menghasilkan kunci shared bersama tanpa mengirimkan kunci rahasia secara langsung. Setiap kali dijalankan, hasilnya akan selalu berbeda dikarenakan privat key dihasilkan secara acak melalui kode `a = random.randint(1, p-1)
+b = random.randint(1, p-1)` , meskipun begitu selama hasil eksekusi nilai Alice dan Bob sama maka algoritma bekerja dengan benar. Jadi setiap kali Alice dan Bob memulai pertukaran kunci baru maka mereka akan selalu membuat kunci privat baru. Hal ini lah yang membuat Diffie-Hellman sangat sulit diretas karena kuncinya selalu berbeda dan akan sangat aman jika digabungkan dengan autentikasi tambahan untuk mencegah serangan Man-In-The-Middle.
+
+Hasil Analisis Serangan MITM (Man-in-the-Middle) ;
+
+![Hasil Eksekusi](screenshots/hasilanalisis.PNG)
+
+Pembahasan :
+Simulasi diatas merupakan kondisi ketika Eve mencegat pertukaran kunci antara Alice dan Bob, kemudian eve mengganti public key yang dikirim Alice ke Bob dan mengganti public key yang dikirim Bob ke Alice
+Akibatnya:
+- Alice tidak menghitung kunci bersama dengan Bob, tetapi dengan Eve
+- Bob tidak menghitung kunci bersama dengan Alice, tetapi dengan Eve
+- Eve mengetahui dua kunci berbeda, sehingga dapat membaca semua pesan
+
+Output yang dihasilkan membuktikan bahwa serangan Man-In-The-Middle (MITM) yang dilakukan oleh Eve berhasil, karena eve dapat membuat dua jalur kunci terpisah. Selain itu Alice dan Bob juga percaya bahwa mereka saling berinteraksi satu sama lain. Inilah alasan mengapa Diffie-Hellman tanpa autentikasi rentan terhadap serangan MITM. Solusi untuk mencegah MITM yaitu dengan penggunaan tanda tangan digital dan sertifikat digital.
 
 ---
 
@@ -174,7 +185,7 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Percobaan Diffie-Hellman menunjukan bahwa dua belah pihak bisa menghasilkan kunci rahasia yang sama meskipun hanya bertukar informasi melalui kunci publik. Hal ini lah yang membuat Diffie-Hellman aman dari peyerang karena penyerag tidak bisa menghitung kunci bersama tanpa mengetahui kunci privat masing-masing pihak. Namun walaupun sudah aman algoritma ini masih rentan terhadap serangan Man-In-The-Middle (MITM) jika tidak disertai dengan proses autentikasi.
 
 ---
 
@@ -183,12 +194,11 @@ Jawaban :
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week7-diffie-hellman
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2025-11-14
+
+    week7-diffie-hellman: Diffie-Hellman Key Exchange
 ```
