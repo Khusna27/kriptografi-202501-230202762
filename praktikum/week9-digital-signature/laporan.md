@@ -38,15 +38,58 @@ Secara keseluruhan, baik RSA maupun DSA sama-sama dipakai untuk memastikan keasl
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
-
-```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
+Langkah 1 - Generate Key dan Buat Tanda Tangan
 ```
-)
+from Crypto.PublicKey import RSA
+from Crypto.Signature import pkcs1_15
+from Crypto.Hash import SHA256
+
+# Generate pasangan kunci RSA
+key = RSA.generate(2048)
+private_key = key
+public_key = key.publickey()
+
+# Pesan yang akan ditandatangani
+message = b"Hello, ini pesan penting."
+h = SHA256.new(message)
+
+# Buat tanda tangan dengan private key
+signature = pkcs1_15.new(private_key).sign(h)
+print("Signature:", signature.hex())
+```
+Hasilnya :
+```
+Signature: 443a0aee408044e7e24dd598fb7ac238e30fd8f6ce9e7263826c288bb2049d4ec54ab88a8b8081970a5f07a2257f8d5317119f4268a840084efd4693ed21eb1de27eac5340926fca2ae0276dce6b6bb060c9a6c74a7bacc1d1b45ba8d76ec6391238cdad9ee43e774c0aaddd0f5b0588f3933168adee87540dd94905b7717f9dadf6cc2825b0099bb1cc5dbdfc3800d949e8e687a35c9f41ed5a2c695f4f329a5a91892f575f169383cd32b34bb3d9cf6340b98cb36dd16b9fab4b32bb8927ebb9c1080183b6780a253fbb950be917388456f79fe7db7c8deddc544ca9beddece7c0cbd9ee332e24c4ae31b2ae057aa26ba2cd8b83739758544804047ae0ccd8
+```
+Langkah 2 — Verifikasi Tanda Tangan
+```
+try:
+    pkcs1_15.new(public_key).verify(h, signature)
+    print("Verifikasi berhasil: tanda tangan valid.")
+except (ValueError, TypeError):
+    print("Verifikasi gagal: tanda tangan tidak valid.")
+```
+Hasilnya :
+```
+Verifikasi berhasil: tanda tangan valid.
+```
+Langkah 3 — Uji Modifikasi Pesan
+```
+# Modifikasi pesan
+fake_message = b"Hello, ini pesan palsu."
+h_fake = SHA256.new(fake_message)
+
+try:
+    pkcs1_15.new(public_key).verify(h_fake, signature)
+    print("Verifikasi berhasil (seharusnya gagal).")
+except (ValueError, TypeError):
+    print("Verifikasi gagal: tanda tangan tidak cocok dengan pesan.")
+```
+Hasilnya :
+```
+Verifikasi gagal: tanda tangan tidak cocok dengan pesan.
+```
+
 
 ---
 
