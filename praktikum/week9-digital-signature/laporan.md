@@ -31,9 +31,12 @@ Secara keseluruhan, baik RSA maupun DSA sama-sama dipakai untuk memastikan keasl
 ---
 
 ## 4. Langkah Percobaan
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `signature.py` di folder `praktikum/week9-digital-signature/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python signtaure .py`.
+4. Mencoba memodifikasi program.
+5. Menjawab pertanyaan
+6. Membuat folder `screenshots` di folder  `praktikum/week9-digital` lalu mengaploud hasilpraktikum di dLm folder tersebut.
 
 ---
 
@@ -231,5 +234,5 @@ commit week9-digital-signature
 Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
 Date:   2025-11-08
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+  week9-digital-signature: implementasi Caesar Cipher dan laporan )
 ```
