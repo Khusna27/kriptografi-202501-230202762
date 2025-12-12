@@ -36,7 +36,7 @@ Secara keseluruhan, baik RSA maupun DSA sama-sama dipakai untuk memastikan keasl
 3. Menjalankan program dengan perintah `python signtaure .py`.
 4. Mencoba memodifikasi program.
 5. Menjawab pertanyaan
-6. Membuat folder `screenshots` di folder  `praktikum/week9-digital` lalu mengaploud hasilpraktikum di dLm folder tersebut.
+6. Membuat folder `screenshots` di folder  `praktikum/week9-digital` lalu mengaploud hasilpraktikum di dalam folder tersebut.
 
 ---
 
@@ -234,5 +234,5 @@ commit week9-digital-signature
 Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
 Date:   2025-11-08
 
-  week9-digital-signature: implementasi Caesar Cipher dan laporan )
+  week9-digital-signature:  Digital Signature (RSA/DSA) 
 ```
