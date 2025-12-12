@@ -160,17 +160,16 @@ Verifikasi gagal: tanda tangan tidak cocok dengan pesan.
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program Digital Signature dengan RSA/ DSA:
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/hasil.png)
+
+![Hasil Input](screenshots/hasil2.PNG)
+
+Penjelasan :
+
+Pada praktikum ini saya mencoba membuat dan memverifikasi tanda tangan digital menggunakan RSA. Pertama, saya membuat tanda tangan dari sebuah pesan, lalu langsung saya verifikasi tanpa mengubah isi pesannya. Hasilnya, verifikasi berhasil karena tanda tangan tersebut memang sesuai dengan pesan yang saya buat di awal. Setelah itu saya coba mpodifikasi dengan mengubah isi pesannya tapi tetap menggunakan tanda tangan yang sama. Pas diverifikasi, ternyata hasilnya gagal. Dari percobaan ini saya jadi paham bahwa tanda tangan digital hanya berlaku untuk pesan asli, dan kalau pesannya diubah sedikit saja, sistem langsung mendeteksi dan menolaknya. Hal menunjukkan bahwa digital signature memang dirancang untuk menjaga keaslian dan integritas pesan.
 
 ---
 
@@ -217,13 +216,11 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Dari praktikum ini saya menyimpulkan bahwa tanda tangan digital hanya akan valid jika pesan yang diverifikasi sama persis dengan pesan saat tanda tangan dibuat. Ketika pesan diubah sedikit saja, proses verifikasi langsung gagal karena hash-nya sudah berbeda. Hal ini menunjukkan bahwa digital signature sangat efektif dalam menjaga keaslian, integritas, dan keamanan data yang dikirimkan.
 
 ---
 
 ## 9. Daftar Pustaka 
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
 
 ---
 
