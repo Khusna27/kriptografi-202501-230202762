@@ -90,6 +90,72 @@ Hasilnya :
 Verifikasi gagal: tanda tangan tidak cocok dengan pesan.
 ```
 
+Signature :
+```
+from Crypto.PublicKey import RSA
+from Crypto.Signature import pkcs1_15
+from Crypto.Hash import SHA256
+
+# Generate pasangan kunci RSA
+key = RSA.generate(2048)
+private_key = key
+public_key = key.publickey()
+
+# Pesan yang akan ditandatangani
+message = b"Hello, ini pesan penting."
+h = SHA256.new(message)
+
+# Buat tanda tangan dengan private key
+signature = pkcs1_15.new(private_key).sign(h)
+print("Signature:", signature.hex())
+
+try:
+    pkcs1_15.new(public_key).verify(h, signature)
+    print("Verifikasi berhasil: tanda tangan valid.")
+except (ValueError, TypeError):
+    print("Verifikasi gagal: tanda tangan tidak valid.")
+```
+Hasilnya :
+```
+Signature: 6bf5ea2a5dee7297c0ac6ae2c5c847bfd45194e94567f408835204499e3be947f3b6b96707e2340945b18763cdc5581b3a02085cc30e90c5425bf1f352abf65bb22a9426beb3a243685a94560705f65cd4129851fe62f28b42dcc1a39859f4c4f3121f789cd3b222de9cdf77a8dd145c1a47b7ca611e4e88be6d3b85c4078f132c25828cfc995f4274172c43b33ef4af29dbfca3c609771f5a5a06209ed6850f8ed3e5fd26fbe6842260bbe1736e5ca609a6e1840afe58e5ee3ea68572a0cd4e73904ef803dd65a4ad29882950f71678793a189387659947df7fffdfc1fed64387ffaeacc3c3eff4c6921b37dede8cdc970e5dae714876730109545ccdfc59d4
+Verifikasi berhasil: tanda tangan valid.
+```
+
+Signature Modifikasi :
+```
+from Crypto.PublicKey import RSA
+from Crypto.Signature import pkcs1_15
+from Crypto.Hash import SHA256
+
+# Generate pasangan kunci RSA
+key = RSA.generate(2048)
+private_key = key
+public_key = key.publickey()
+
+# Pesan yang akan ditandatangani
+message = b"Hello, ini pesan penting."
+h = SHA256.new(message)
+
+# Buat tanda tangan dengan private key
+signature = pkcs1_15.new(private_key).sign(h)
+print("Signature:", signature.hex())
+
+# Modifikasi pesan
+fake_message = b"Hello, ini pesan palsu."
+h_fake = SHA256.new(fake_message)
+
+try:
+    pkcs1_15.new(public_key).verify(h_fake, signature)
+    print("Verifikasi berhasil (seharusnya gagal).")
+except (ValueError, TypeError):
+    print("Verifikasi gagal: tanda tangan tidak cocok dengan pesan.")
+```
+
+Hasilnya :
+```
+Signature: 16c9261c372ab9a0220a8f5f368394e72defe0178371e4f23b0ae1a4f1e8c1ffbfc691ecf256b8464a9a9b98883ab5e8b6ec476a67f73a5b42db77462ed40017b491ddaa23183349d17813028f736b9a47921c186e2ac174e87a6a5a4391cba23c559c23e363e3c48f8384e538d7b50c9fa5ceb1dee1c7f3e4c174b544e8aed623f92ffadd4baa4eda2e106ca2d0a266081aaa9fc8d6f569d93225b907c6065d2783ef6d54d816aae72b76d2ba492db200259a16233243926405422e06ccd0469ea623b8c12c58aebac0201e5313f60bd64f559445900a961298527407be7d5106a083070873db3c79f9858b3885027610d1ffb542edb77e33127c2d5f1aa27c
+Verifikasi gagal: tanda tangan tidak cocok dengan pesan.
+```
 
 ---
 
