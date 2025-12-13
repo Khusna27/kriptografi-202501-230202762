@@ -25,10 +25,10 @@ Fungsi sistem PKI juga terlihat jelas dalam konteks komunikasi aman seperti HTTP
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+- Python 3.x  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Google Schollar 
 
 ---
 
@@ -70,10 +70,19 @@ Hasil eksekusi program Caesar Cipher:
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+
+1. Apa fungsi utama Certificate Authority (CA)?  
+2. Mengapa self-signed certificate tidak cukup untuk sistem produksi?  
+3. Bagaimana PKI mencegah serangan MITM dalam komunikasi TLS/HTTPS?  
+
+Jawaban : 
+
+1. Fungsi utama Certificate Authority (CA) adalah sebagai lembaga tepercaya yang berperan dalam menjamin keaslian identitas suatu entitas di dalam sistem keamanan berbasis PKI. CA bertugas melakukan proses verifikasi identitas sebelum menerbitkan sertifikat digital, sehingga kunci publik yang tercantum di dalam sertifikat benar-benar dimiliki oleh pihak yang bersangkutan. Selain menerbitkan sertifikat, CA juga mengelola masa berlaku sertifikat, melakukan pembaruan, serta menyediakan mekanisme pencabutan sertifikat apabila terjadi penyalahgunaan atau kebocoran kunci. Dengan adanya CA, kepercayaan antar pihak dalam komunikasi digital dapat terbangun tanpa harus saling mengenal secara langsung.
+
+2. Self-signed certificate tidak cukup digunakan pada sistem produksi karena sertifikat jenis ini diterbitkan dan ditandatangani oleh pemiliknya sendiri tanpa melibatkan pihak ketiga yang tepercaya. Akibatnya, klien atau browser tidak memiliki dasar untuk memastikan bahwa identitas server tersebut benar dan bukan tiruan. Hal ini biasanya ditandai dengan munculnya peringatan keamanan pada browser, yang dapat menurunkan kepercayaan pengguna terhadap sistem. Selain itu, penggunaan self-signed certificate meningkatkan risiko serangan seperti penyamaran identitas (spoofing), sehingga sertifikat ini lebih cocok digunakan pada tahap pengembangan, pengujian, atau pembelajaran, bukan pada lingkungan produksi yang melibatkan pengguna umum.
+
+3. PKI mencegah serangan Man-in-the-Middle (MITM) dalam komunikasi TLS/HTTPS melalui mekanisme verifikasi sertifikat dan enkripsi komunikasi. Ketika klien mengakses sebuah server HTTPS, klien akan memeriksa sertifikat digital server tersebut, termasuk keabsahan tanda tangan CA, kesesuaian nama domain, dan masa berlaku sertifikat. Jika sertifikat dinyatakan valid, proses handshake TLS akan dilanjutkan untuk membentuk kunci sesi yang digunakan dalam enkripsi data. Dengan cara ini, pihak ketiga yang mencoba menyadap atau memodifikasi komunikasi tidak dapat membaca isi data karena terenkripsi, serta tidak dapat menyamar sebagai server yang sah karena tidak memiliki sertifikat valid yang diterbitkan oleh CA tepercaya.
+
 ---
 
 ## 8. Kesimpulan
@@ -82,10 +91,8 @@ Hasil eksekusi program Caesar Cipher:
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
+
+- Wathoni, M., Nurhasanah, R., Shela, D., Informasi, P. T., Pendidikan, F. I., Muhammadiyah, U., & Selatan, K. T. (n.d.). Penerapan konfigurasi dasar pki dua tingkat: active directory certificate services (ad cs). 55–62.
 
 ---
 
