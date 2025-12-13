@@ -1,20 +1,29 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 10 
+Topik: Public Key Infrastructure (PKI & Certificate Authority)  
+Nama: Khusnatun Lina Fitri
+NIM: 230202762  
+Kelas:5IKRB 
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+1. Membuat sertifikat digital sederhana.  
+2. Menjelaskan peran Certificate Authority (CA) dalam sistem PKI.  
+3. Mengevaluasi fungsi PKI dalam komunikasi aman (contoh: HTTPS, TLS).  
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+
+Public Key Infrastructure (PKI) merupakan sebuah kerangka kerja kriptografi yang penting dalam keamanan digital karena memungkinkan pengelolaan sertifikat digital dan pasangan kunci publik–privat untuk keperluan autentikasi, enkripsi, dan integritas data dalam komunikasi jaringan. Dalam PKI, sertifikat digital mengikuti standar seperti X.509 yang mengikat identitas suatu entitas dengan kunci publiknya melalui tanda tangan digital dan diverifikasi oleh pihak tepercaya agar dapat dipercaya oleh pengguna lain dalam sistem komunikasi. Standar X.509 sendiri menjadi dasar dalam berbagai protokol aman termasuk TLS/SSL yang digunakan dalam HTTPS. Dengan memahami struktur dan prinsip kerja PKI ini, mahasiswa dapat belajar membuat sertifikat digital sederhana sebagai bagian dari proses otentikasi dan enkripsi data. 
+
+
+Peran Certificate Authority (CA) dalam sistem PKI sangat sentral karena CA bertanggung jawab untuk memverifikasi identitas pemohon sertifikat sebelum menerbitkan sertifikat digital yang valid. Dalam hierarki PKI yang umum, root CA berada pada tingkat tertinggi sebagai sumber kepercayaan utama, dan dapat mendelegasikan tugas penerbitan ke intermediate CA untuk meningkatkan keamanan operasional dan skalabilitas sistem. Struktur seperti ini membantu memastikan bahwa sertifikat yang diterbitkan benar-benar berasal dari sumber tepercaya. Riset tentang hierarki PKI menekankan pentingnya desain dan manajemen CA untuk meningkatkan keamanan jaringan, khususnya dalam mempertahankan kepercayaan terhadap sertifikat digital yang digunakan di berbagai aplikasi. 
+
+
+Fungsi sistem PKI juga terlihat jelas dalam konteks komunikasi aman seperti HTTPS dan protokol TLS, di mana sertifikat digital yang diterbitkan oleh CA memungkinkan browser dan server untuk melakukan handshake yang terenkripsi dan saling memverifikasi identitas masing-masing pihak. Dengan demikian, data yang ditransmisikan terlindungi dari penyadapan atau modifikasi oleh pihak yang tidak berwenang, sehingga menjaga kerahasiaan dan keutuhan informasi. Studi-studi tentang manajemen sertifikat juga mengangkat isu-isu terkini seperti otomatisasi sertifikat dan validasi jalur sertifikasi (certification path validation algorithm) yang menjadi bagian penting dalam memastikan keandalan sistem PKI di lingkungan global. 
+
 
 ---
 
@@ -84,12 +93,12 @@ Contoh:
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week10-pki
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2025-12-13
+
+   week10-pki : Public Key Infrastructure (PKI & Certificate Authority)
+
 ```
