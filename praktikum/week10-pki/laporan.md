@@ -1,8 +1,12 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: 10 
+
 Topik: Public Key Infrastructure (PKI & Certificate Authority)  
+
 Nama: Khusnatun Lina Fitri
+
 NIM: 230202762  
+
 Kelas:5IKRB 
 
 ---
@@ -33,16 +37,19 @@ Fungsi sistem PKI juga terlihat jelas dalam konteks komunikasi aman seperti HTTP
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+
+1. Membuat file `pki_cert.py` di folder `praktikum/week10-pki/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python pki_cert.py`.)
+4. Membuat file `hasil-p10.PNG' di folder `praktikum/week10-pki/screenshots/`.
+5. Menjawab pertanyaan diskusi.
+6. Menyelesaikan laporan.md
 
 ---
 
 ## 5. Source Code
 
+Code python dengan file `pki_cert.py`
 ```
 from cryptography import x509
 from cryptography.x509.oid import NameOID
@@ -85,17 +92,20 @@ print("Sertifikat digital berhasil dibuat: cert.pem")
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program pki_cert.py
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/hasil-p10.PNG)
+
+Pada code program sedikit saya rubah untuk bagian waktu validasi sertifikat yaitu pada bagian `datetime.utcnow()` menjadi `datetime.now(timezone.utc)` agar sesuai dengan standar Python saya. 
+
+Setelah program berhasil dieksekusi dan berhasil tahap selanjutnya yaitu memverifikasi sertifikat digital yang telah dibuat dengan memanfaatkan public key untuk memeriksa tanda tangan digital pada sertifikat. Karena sertifikat bersifat self-signed, maka proses verifikasi menggunakan pasangan kunci yang sama dengan kunci penandatangan. Verifikasi ini bertujuan untuk memastikan bahwa sertifikat benar-benar asli dan tidak mengalami perubahan sejak ditandatangani.
+
+Dalam sistem PKI yang sebenarnya, proses verifikasi diperkuat oleh Certificate Authority (CA) sebagai pihak tepercaya. CA menjamin keaslian sertifikat dengan menandatanganinya menggunakan private key CA, sehingga pengguna cukup memverifikasi sertifikat menggunakan public key CA yang telah dipercaya sebelumnya.
+
+Selain CA yang digunakan untuk memverifikasi keaslian sertifikat, browser juga bisa memverifkasi sertifikat secara otomatis seperti pada pengaksesan situs HTTPS. Jadi, ketika pengguna mengakses sebuah website, browser akan melakukan pemeriksaan terhadap sertifikat digital yang diterima, seperti validitas tanda tangan digital, masa berlaku sertifikat, serta kesesuaian nama domain yang tercantum di dalam sertifikat. Proses ini dilakukan dengan membandingkan sertifikat tersebut dengan daftar Certificate Authority yang telah tersimpan di dalam browser atau sistem operasi.
+
+Apabila seluruh proses verifikasi berhasil, browser akan melanjutkan komunikasi menggunakan protokol TLS dengan koneksi yang terenkripsi sehingga data yang dikirimkan aman dari penyadapan. Namun, jika sertifikat tidak valid atau diterbitkan oleh CA yang tidak tepercaya, browser akan menampilkan peringatan keamanan kepada pengguna. Dengan mekanisme ini, Public Key Infrastructure (PKI) berperan penting dalam mencegah serangan Man-in-the-Middle dan menjaga keamanan komunikasi pada layanan berbasis HTTPS.
 
 ---
 
@@ -116,7 +126,8 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+
+Setelah mengerjakan praktikum, saya jadi dapat memahami bagaimana konsep dasar Public Key Infrastruktur (PKI) dan bagaimana penerapannya seperti penggunaan CA untuk memverifikasi keaslian sertifikat dan bagaimana cara browser untuk memverifikasi keaslian sertifikat dalam komunikasi HTTPS. Selain itu saya juga berhasil membuat sertifikat digital `self-signed` dengan penggunaan public key dan privat key. Dengan demikian PKI membantu melindungi data dari ancaman keamanan seperti serangan MITM. 
 
 ---
 
