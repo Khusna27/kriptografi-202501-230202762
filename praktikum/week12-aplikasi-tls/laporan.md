@@ -1,14 +1,17 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 12
+Topik:Aplikasi TLS & E-commerce
+Nama: Khusnatun Lina Fitri
+NIM: 230202762
+Kelas: 5IKRB
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+1. Menganalisis penggunaan kriptografi pada **email** dan **SSL/TLS**.  
+2. Menjelaskan enkripsi dalam transaksi **e-commerce**.  
+3. Mengevaluasi isu **etika & privasi** dalam penggunaan kriptografi di kehidupan sehari-hari.  
+
 
 ---
 
