@@ -36,10 +36,12 @@ Dari aspek keamanan, Shamir Secret Sharing memiliki kelebihan karena tingkat kea
 ---
 
 ## 4. Langkah Percobaan
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+
+1. Membuat file `secret_shamir.py` di folder `praktikum/week11-secret-sharing/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python secret_sharing.py`.
+4. Membuat folder screenshots di folder `praktikum/week11-secret-sharing/`.
+5. Mengaploud hasil screenshot ke dalam folder `praktikum/week11-secret-sharing/screenshots/`.
 
 ---
 
@@ -224,17 +226,22 @@ Sehingga dapat diismpulkan bahwa keamanan pada Shamir's Secret Sharing memberika
 ---
 
 ## 6. Hasil dan Pembahasan
-- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program secret_shamir.py
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/hasil_langkah_1.PNG)
+
+Pembahasan : 
+
+Pada hasil eksekusi ini, metode Shamir’s Secret Sharing diterapkan dengan memanfaatkan bilangan prima berukuran sangat besar untuk membagi sebuah rahasia berupa string “KriptografiUPB2025” menjadi lima buah share dengan nilai ambang batas sebanyak tiga. Setiap share diperoleh melalui proses evaluasi polinomial dan secara individual tidak mampu mengungkapkan isi rahasia. Proses rekonstruksi yang dilakukan menggunakan tiga share berhasil menghasilkan kembali rahasia asli, sehingga dapat disimpulkan bahwa algoritma berjalan sesuai dengan yang diharapkan.
+
+Hasil eksekusi program tanpa library 
+
+![Hasil Input](screenshots/hasil_langkah_manual.PNG)
+
+Pembahasan : 
+
+Berdasarkan hasil penerapan program tanpa library menggunakan bilangan prima berukuran kecil dengan rahasia berupa nilai numerik. Polinomial dibentuk dengan cara sederhana dan nilai share dihitung secara langsung. Selanjutnya, melalui proses interpolasi Lagrange dengan memanfaatkan tiga share, rahasia dapat direkonstruksi kembali dengan benar. Hasil ini menunjukkan bahwa baik pada implementasi dengan skenario realistis maupun simulasi sederhana, prinsip dasar yang digunakan tetap sama, yaitu rahasia hanya dapat diperoleh apabila jumlah share yang digunakan telah memenuhi nilai ambang batas yang ditentukan.
 
 ---
 
@@ -255,7 +262,7 @@ Jawaban :
 
 ## 8. Kesimpulan
 
-    Berdasarkan hasil praktikum, metode Shamir’s Secret Sharing berhasil membagi secret menjadi beberapa share tanpa mengungkapkan isi secret secara langsung. Secret hanya dapat dikembalikan jika jumlah share yang digunakan memenuhi nilai threshold yang ditentukan. Hal ini menunjukkan bahwa metode ini efektif dalam menjaga keamanan data rahasia.
+Berdasarkan hasil praktikum, metode Shamir’s Secret Sharing berhasil membagi secret menjadi beberapa share tanpa mengungkapkan isi secret secara langsung. Secret hanya dapat dikembalikan jika jumlah share yang digunakan memenuhi nilai threshold yang ditentukan. Hal ini menunjukkan bahwa metode ini efektif dalam menjaga keamanan data rahasia.
 
 ---
 
@@ -270,5 +277,5 @@ commit week11-secret-sharing
 Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
 Date:   2025-12-19
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week11-secret-sharing: Secret Sharing (Shamir’s Secret Sharing)
 ```
