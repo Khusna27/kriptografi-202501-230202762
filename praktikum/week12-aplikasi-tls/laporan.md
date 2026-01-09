@@ -78,17 +78,16 @@ Jawaban : Pemerintah juga dilema dalam membuat kebijakan pengawasan komunikasi t
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil CA pada website Shopee : 
 
 ![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+
+Berdasarkan hasil gambar diatas menampilkan detail sertifikat SSL/TLS pada website e-commerce Shopee yang diakses melalui browser. Pada bagian Subject / Domain, terlihat bahwa sertifikat digunakan untuk domain *.shopee.co.id, yang berarti sertifikat ini berlaku untuk seluruh subdomain Shopee Indonesia.
+
+Pada bagian Issuer (Certificate Authority), sertifikat diterbitkan oleh GlobalSign GCC R6 AlphaSSL CA 2023, yaitu lembaga otoritas sertifikat yang terpercaya. Informasi masa berlaku sertifikat menunjukkan bahwa sertifikat aktif mulai 24 Maret 2025 hingga 25 April 2026, sehingga sertifikat masih valid dan aman digunakan.
+
+Selain itu, gambar juga menunjukkan bahwa website menggunakan protokol HTTPS (TLS), yang berfungsi untuk mengenkripsi komunikasi antara pengguna dan server. Dengan adanya sertifikat SSL/TLS ini, data yang dikirimkan seperti informasi login dan transaksi pengguna terlindungi dari risiko penyadapan dan manipulasi pihak yang tidak berwenang.
 
 ---
 
