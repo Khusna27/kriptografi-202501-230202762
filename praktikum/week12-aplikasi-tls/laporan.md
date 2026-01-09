@@ -31,30 +31,49 @@ Penggunaan TLS pada aplikasi e-commerce dapat meningkatkan tingkat keamanan sert
 
 ## 3. Alat dan Bahan
 
-- Python 3.x  
+- Python 3.11
 - Visual Studio Code 
 - Git dan akun GitHub  
-- Chrome
+- Google Chrome
 ---
 
 ## 4. Langkah Percobaan
 
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
-2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+### Langkah 1 - Analisis SSL/TLS pada Email & Web (Shopee)
+
+Berdasarkan hasil pengecekan setifikat SSL/TLS pada website Shopee menggunkaan browser, diperoleh informasi bahwa website shopee telah menggunkan protokol HTTPS ynag mennadakan adanya enkripsi data. 
+
+- Issuer CA (Certificate Authority) : Sertifikat digital website Shopee diterbitkan oleh **GlobalSign GCC R6 AlphaSSL CA 2023** , yang merupakan Certificate Authority terpercaya.
+  
+-  Sertifikat tersebut memiliki masa berlaku mulai **24 Maret 2025** sampai **25 April 2026**, sehingga masih aktif dan dapat digunakan.
+
+- Website Shopee juga menerapkan algoritma enkripsi yang aman dengan menggunakan **RSA** untuk proses pertukaran kunci dan **AES** untuk mengenkripsi data selama komunikasi berlangusng.
+  
+- Perbedaan yang jelas antara website HTTPS dan non-HTTPS terletak pada keamanannnya, dimana HTTPS mampu mengenkripsi data pengguna, sedangkan website tanpa HTTPS sangat rentan terhadap penyadapan dan pencurian informasi. Selain itu website yang menggunakan HTTPS juga menjamin keaslian website melalui sertificate digital sehingga meningkatkan kepercayaan pengguna. Sedangkan webite yang menggunakan HTTP biasanya data hanya dikirim dalam bentuk teks biasa, sehingga mudah disadap dan tidak aman untuk melakukan login maupun proses transaksi.
+
+
+### Langkah 2 — Studi Kasus E-commerce
+
+Pada studi kasus e-commerce seperti Shopee, teknologi TLS digunakan untuk menjaga keamanan data pengguna, terutama saat proses login, pengisisan data pribadi, dan transaksi pembayaran. Dengan adanya proses enkripsi, data yang dikirimkan menjadi tidak dapat dibaca oleh pihak lain yang tidak berwenang.
+
+Apabila TLS tidak diterapkan, maka resiko serangan keamanan akan meningkat, seperti serangan Man In The Middle, pencurian data akun, hingga manipulasi transaksi. Hal ini dapat merugikan pengguna dan menurunkan tingkat kepercayaan terhadap platform e-commerce.
+
+### Langkah 3 — Analisis Etika & Privasi
+
+Penggunaan email terenkripsi seperti PGP dan S/MIME bertujuan untuk menjaga kerahasiaan komunikasi digital. Dengan adanya enkripsi, isi pesan hanya dapat dibaca oleh pihak yang memiliki kunci yang sesuai, sehingga risiko kebocoran data dan penyadapan dapat diminimalkan. Namun hal ini juga menjadi sebuah permasalahan dalam hal etika.
+
+a) Dilema etika dalam perusahaan apakah boleh melakukan dekripsi email karyawan untuk audit ?. 
+
+Jawaban : Secara etika, perusahaan dapat melakukan pengawasan email karyawan untuk kepentingan audit, keamanan, dan kepatuhan terhadap aturan internal, namun dengan batasan yang jelas. Selain itu juga sebaiknya pengawasan hanya dilakukan pada email yang menggunakan fasilitas resmi perusahaan dan harus di informasikan secara transparan kepada karyawan melalui kebijakan tertulis. Karena tanpa persetujuan dan aturan yang jelas dekripsi email dapat melanggar hak privasi karyawan dan menimbulkan masalah etika serta hukum.
+
+b) Bagaimana kebijakan pemerintah dalam pengawasan komunikasi terenkripsi?
+
+Jawaban : Pemerintah juga dilema dalam membuat kebijakan pengawasan komunikasi terenkripsi antara menjaga keamanan nasional dan melindungi hak privasi warga. Di satu sisi, teknologi enkripsi berperan penting dalam melindungi data dan komunikasi masyarakat, namun di sisi lain dapat menyulitkan proses penegakan hukum. Oleh karena itu, kebijakan pengawasan komunikasi terenksripsi umumnya diatur melalui dasar hukum yang jelas, seperti izin resmi dan proses pengadilan sehingga pengawasan tidak dilakukan secara bebas dan tetap menghormati hak privasi setiap individu.
 
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
 
-```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
-```
-)
 
 ---
 
