@@ -81,7 +81,7 @@ Jawaban : Pemerintah juga dilema dalam membuat kebijakan pengawasan komunikasi t
 
 Hasil CA pada website Shopee : 
 
-![Hasil Eksekusi](screenshots/output.png)
+![Hasil Eksekusi](screenshots/sertifikat.png)
 
 Berdasarkan hasil gambar diatas menampilkan detail sertifikat SSL/TLS pada website e-commerce Shopee yang diakses melalui browser. Pada bagian Subject / Domain, terlihat bahwa sertifikat digunakan untuk domain *.shopee.co.id, yang berarti sertifikat ini berlaku untuk seluruh subdomain Shopee Indonesia.
 
@@ -108,25 +108,24 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+
+Berdasarkan praktikum ini dapat diismpulkan bahwa website Shopee telah menerapkan SSL/TLS dengan baik menggunakan sertifikat yang valid dan masih aktif, sehingga komunikasi data antara pengguna dan server menjadi aman. Penggunaan protokol HTTPS membantu melindungi informasi penting seperti data login dan transaksi dari risiko penyadapan. Dengan demikian, penerapan keamanan pada website tersebut sudah sesuai dengan standar keamanan web.
 
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
+  
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
 - Stallings, W. *Cryptography and Network Security*.  )
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week12-aplikasi-tls
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2026-01-09
+
+   week12-aplikasi-tls: Aplikasi TLS & E-commerce
 ```
