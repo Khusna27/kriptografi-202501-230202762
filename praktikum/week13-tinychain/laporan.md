@@ -116,7 +116,7 @@ Block mined: 0000cad221a197a120860999f132e1bc2cdc7852afca23a042d7951e52752012
 
 ### Langkah 3 - Analisis Proof of Work
 
-Pada kode yang digunakan, proses mining dilakukan dengan mencari nilai hash yang sesuai dengan tingkat keulitan tertentu, yaitu hash harus memiliki awalan sejumlah angka nol. Semakin besar nilai difficulty yang ditetapkan, semakin banyak percobaan yang harus dilakukan untuk menemukan hash yang valid, sehingga waktu proses mining menjadi lebih lama dan membutuhkan komputasi yang lebih tinggi.
+Pada kode yang digunakan, proses mining dilakukan dengan mencari nilai hash yang sesuai dengan tingkat kesulitan tertentu, yaitu hash harus memiliki awalan sejumlah angka nol. Semakin besar nilai difficulty yang ditetapkan, semakin banyak percobaan yang harus dilakukan untuk menemukan hash yang valid, sehingga waktu proses mining menjadi lebih lama dan membutuhkan komputasi yang lebih tinggi.
 
 Tingginya tingkat kesulitan ini berfungsi sebagai mekanisme pengaman dalam blockchain. Setiap upaya untuk mengubah isi suatu blok akan mengharuskan pelaku menghitung ulang hash blok tersebut beserta blok-blok berikutnya. Proses ini memerlukan sumber daya komputasi yang besar, sehingga manipulasi data menjadi tidak efisien dan sulit dilakukan.
 
@@ -159,20 +159,18 @@ Jawaban :
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
+ 
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
 - Stallings, W. *Cryptography and Network Security*.  )
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+commit week13-tinychain
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2025-01-13
+
+   week13-tinychain: TinyChain – Proof of Work (PoW)
 ```
