@@ -29,19 +29,20 @@ Dalam konteks TinyChain, PoW digunakan sebagai simulasi untuk menunjukkan bagaim
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
-- Visual Studio Code / editor lain  
+- Python 3.12.2 
+- Visual Studio Code   
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Google chrome
 
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+
+1. Membuat file `tinychain.py` di folder `praktikum/week13-tinychain/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python tinychain.py`.
+4. Mengerjakan laporan.md
+5. Membuat file `hasil.png` di folder `praktikum/week13-tinychain/sreenshoots/`
 
 ---
 
@@ -125,17 +126,16 @@ Oleh karena itu, mekanisme Proof of Work memastikan bahwa blockchain tetap aman 
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program tinychain.py :
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screnshoots/tinychain.png)
+
+Pembahasan : 
+
+Berdasarkan pengujian yang telah dilakukan, program Tiny Blockchain yang dibuat sudah dapat berjalan dengan baik setelah dilakukan perbaikan pada bagian kode. Blockchain berhasil dibentuk mulai dari genesis block hingga block transaksi berikutnya. Setiap block ditambang menggunakan mekanisme *proof of work*, dimana sistem akan mencari nilai hash yang sesuai dengan tingkat kesulitan *(difficulty)* yang ditentukan. Hal ini terlihat dari hasil hash yang diawali dengan beberapa angka nol, sehingga dapat disimpulkan bahwa proses mining dan perhitungan hash telah berhasil dilakukan.
+
+Namun pada awal pembuatan program, sempat terjadi error yang menyebabkan kode tidak bisa dijalankan. Error terjadi karena kesalahan penulisan kode deklarasi untuk kelas *Blockchain* yang berada pada baris yang sama dengan perintah *print()*. Setelah error berhasil diatasi, program dapat berjalan kembali tanpa kendala. 
 
 ---
 
@@ -154,14 +154,12 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Berdasarkan hasil praktikum yang telah dilakukan, program Tiny Blockchain berhasil berjalan dengan baik setelah dilakukan perbaikan pada kesalahan penulisan kode. Selain itu sistem juga mampu mengimplementasikan konsep dasar blockchain, seperti hashing, proof of work, dan hubungan antar blok melalui *previous_hash*. Dengan demikian, praktikum tiny chain dengan *proof of work* berhasil menunjukan cara kerja pembentukan blockchain sederhana dan mekanisme keamanan data mellaui proses mining.
 
 ---
 
 ## 9. Daftar Pustaka
  
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
 
 ---
 
