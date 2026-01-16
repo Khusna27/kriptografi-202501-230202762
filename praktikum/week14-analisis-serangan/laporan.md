@@ -1,20 +1,32 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+
+Minggu ke-: 14
+
+Topik: Analisis Serangan Kriptografi
+
+Nama: Khusnatun Lina Fitri
+
+NIM: 230202762
+
+Kelas: 5IKRB
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+
+1. Mengidentifikasi jenis serangan pada sistem informasi nyata.  
+2. Mengevaluasi kelemahan algoritma kriptografi yang digunakan.  
+3. Memberikan rekomendasi algoritma kriptografi yang sesuai untuk perbaikan keamanan.
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+
+Kriptografi merupakan teknik yang digunakan untuk mengamankan data agar tidak dapat dibaca oleh pihak yang tidak berwenang. Dalam sistem komputer dan jaringan, kriptografi berperan penting untuk menjaga kerahasiaan dan keamanan informasi, seperti data login, pesan, dan transaksi digital. Namun, meskipun suatu sistem sudah menggunakan algotirma kriptografi, sistem tersebut tetap berpotensi mengalami serangan jika memiliki kelemahan, baik dari sisi algoritma maupun cara penerapannya.
+
+Analisis serangan kriptografi digunakan untuk mempelajari dan menguji bagaimana suatu sistem kriptografi dapat diserang atau ditembus oleh pihak yang tidak berhak. Salah satu contoh serangan yang sering terjadi adalah brute force attack, yaitu serangan dengan cara mencoba semua kemungkinan kunci atau password sampai menemukan yang benar. Selain itu, terdapat juga jenis serangan lain seperti known-plaintext attack dan ciphertext-only attack yang memanfaatkan informasi tertentu untuk memecahkan sistem keamanan.
+
+Dengan melakukan analisis serangan kriptografi , pengembang dapat mengetahui kelemahan pada sistem keamanan yang digunakan. Hasil dari analisis ini dapat dijadikan sebagai bahan evaluasi untuk meningkatkan keamanan, seperti menggunakan algoritma yang lebih kuat, memperpanjang kunci enkripsi, dan menerapkan sistem keaman tambahan. Oleh karena itu, analisis serangan kriptpgrafi sangat penting untuk memastikan data tetap aman dari berbagai ancaman keamanan digital.
 
 ---
 
@@ -64,10 +76,17 @@ Hasil eksekusi program Caesar Cipher:
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+1. Mengapa banyak sistem lama masih rentan terhadap brute force atau dictionary attack?  
+2. Apa bedanya kelemahan algoritma dengan kelemahan implementasi?  
+3. Bagaimana organisasi dapat memastikan sistem kriptografi mereka tetap aman di masa depan?
+
+Jawaban : 
+
+1. Banyak sistem lama masih rentang terhadap serangan brute force atau dictionary attack karena menggunakan algoritma kriptografi yang sudah lama atau yang panjang kuncinya masih pendek. Selain itu, sistem lama juga sering menyimpan password tanpa teknik pengamanan tambahan seperti hashing yang kuat. Faktor lain yang mempengaruhi yaitu keterbatasan teknologi pada saat sistem tersebut dibuat, sehingga tidak dirancang untuk menghadapi kemampuan komputasi yang semakin kuat saat ini.
+
+2. Perbedaan antara kelemahan algoritma dengan kelemahan implementasi yaitu kelemahan algoritma terjadi ketika algoritma kriptografi itu sendiri sudah tidak aman, misalnya karena memiliki celah matematis atau sudah berhasil dipecahkan. Sedangkan kelemahan implementasi terjadi bukan karena algoritmanya, tetapi karena kesalahhan dalam penerapannya, seperti penggunaan kunci yang lemah, penyimpanan password yang tidak aman atau konfigurasi sistem yang salah.
+
+3. Organisasi dapat memastikan keamanan sistem kroptografi dengan cara selalu memperbarui algoritma dan standar keamanan yang digunakan sesuai perkembangan teknologi. Selain itu, perlu dilakukan pengujian keamanan secara berkala, seperti penetration testing dan audit sistem. Organisasi juga harus menerapkan praktik keamanan yang baik, seperti manajemen kunci yang benar dan edukasi keamanan bagi pengelola sistem.
 ---
 
 ## 8. Kesimpulan
