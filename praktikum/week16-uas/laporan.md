@@ -1,37 +1,53 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: 16
+
 Topik: UAS KRIPTOGRAFI EDUTOKEN
+
 Nama: Khusnatun Lina Fitri  
+
 NIM: 230202762
+
 Kelas: 5IKRB
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+
+Projek EduToken dikembangkan dengan beberapa tujuan utama, yaitu:
+1.	Mengimplementasikan konsep kriptografi dalam aplikasi pembelajaran berbasis web berbasis blockchain untuk memberikan pemahaman praktis kepada pengguna.
+2.	Mengembangkan platform pembelajaran interaktif yang mengintegrasikan materi kriptografi, kuis, dan sistem reward token digital.
+3.	Menerapkan teknologi blockchain Ethereum melalui smart contract ERC-20 serta penggunaan MetaMask pada jaringan Sepolia Testnet.
+4.	Mendemonstrasikan penerapan protokol keamanan, termasuk hashing, autentikasi, integritas data, dan transaksi token digital.
+
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+
+Teknologi blockchain merupakan teknologi terdistribusi yang menawarkan transparansi, keamanan, dan desentralisasi dalam pencatatan data. Dalam bidang pendidikan, blockchain berpotensi digunakan sebagai sistem pendukung pembelajaran, salah satunya melalui mekanisme reward berbasis token digital untuk meningkatkan motivasi dan partisipasi mahasiswa.
+
+Kriptografi merupakan komponen utama dalam blockchain yang berfungsi untuk menjaga keamanan data dan transaksi. Konsep kriptografi seperti hashing, enkripsi, dan digital signature menjadi dasar dalam pengamanan sistem blockchain. Namun, pembelajaran kriptografi sering dianggap sulit karena bersifat abstrak dan kurang aplikatif.
+
+EduToken merupakan platform pembelajaran yang mengintegrasikan konsep kriptografi dengan teknologi blockchain Ethereum. Melalui smart contract ERC-20 yang dikembangkan menggunakan Solidity dan dijalankan pada jaringan Sepolia Testnet, mahasiswa dapat memperoleh token digital sebagai reward setelah menyelesaikan kuis. Implementasi ini memberikan pengalaman langsung dalam memahami mekanisme smart contract, transaksi token, serta keamanan blockchain tanpa biaya transaksi nyata.
 
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
-- Visual Studio Code / editor lain  
+
+- Visual Studio Code 
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Remix IDE
+- Akun Metamask
+- Onrender
+- Fron End menggunakan HTML, CSS, JavaScript
+- Smart contract menggunakan solidity
+- Network menggunakan Ethereum Sepolia
 
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
-2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+
+1. Login ke website EduToken 
 
 ---
 
