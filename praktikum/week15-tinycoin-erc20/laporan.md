@@ -26,27 +26,30 @@ TinyCoin digunakan sebagai token pembelajaran untuk memahami konsep dasar kripto
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
-- Visual Studio Code / editor lain  
+
+- Remix IDE 
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Library OpenZeppelin
+- Google Chrome
 
 ---
 
 ## 4. Langkah Percobaan
-(Tuliskan langkah yang dilakukan sesuai instruksi.  
-Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+
+1. Membuat file `TinyCoin.sol` di Remix.IDE
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan klik menu compile.
+4. Lalu masuk ke bagian deploy pilih vm pada bagian environment dan masukan nilai initialsupply lalu klik deploy dan contract berhasil dibuat.
+5. Menu balanceof untuk mengecek nilai initial supply dengan memasukan alamat account.
+6. Menu transfer untuk melakukan transfer dengan cara memasukan alamat account lain dan masukan nilai kemudian klik transact dan akan berhasil jika pada bagian terminal ada centang hijau.
 
 ---
 
 ## 5. Source Code
 
-### Langkah 1 - Mmebuat Kontrak ERC-20.
+### Membuat Kontrak ERC-20.
 
-Membuat file dengan nama TinyCoin.sol diremix ide.
+Membuat file dengan nama TinyCoin.sol yang telah dimodifikasi diremix ide.
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -98,17 +101,36 @@ contract TinyCoin {
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program TinyCoin.sol di REMIX.IDE :
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/deploycontract.jpeg)
+
+Gambar diatas merupakan hasil deploy smart contract untuk token TinyCoin.sol pada Remix IDE. Kontrak dirancang dengan menggunakan standar ERC-20 dan di dideploy ke Remix VM (Osaka) dengan memasukan nilai initial supply sebesar 1000. Setelah itu klik tombol deploy dan pada bagian terminal akan muncul tanda centang hijau yang menandakan transaksi berhasil dieksekusi sehingga smart kontrak telah aktif.
+
+![Hasil Input](screenshots/balanceof.jpeg)
+
+Setelah berhasil melakukan deploy contact dibagian bawah deployed contract pilih menu BalanceOf dengan memasukan alamat akun lalu klik balanceof dan jumlah saldo akan muncul sebesar 1000 dengan 18 decimal dibelakangnya.
+
+![Hasil Output](screenshots/akun1transfer.jpeg)
+
+Pada bagian transfer saya menambahkan kode supaya token bisa melakukan transaksi. Untuk dapat melakukan transfer kita juga akan membuat akun 2 dengan cara deploy ulang contract. Setelah berhasil copy pada bagian deploy contract akun 2 dan masuk ke akun 1 lagi untuk melakukan transaksi dengan memilih menu transfer dan masukan alamat akun 2 dan masukan jumlah nilai yang akan di transfer.
+
+![Hasil Output](screenshots/akun1berhasiltransfer.jpeg)
+
+Setelah memasukan nilai yang akan di transfer klik menu transact jika berhasil pada bagian terminal akan muncul tanda centang hijau yang menandakan akun 1 berhasil transfer ke akun 2.
+
+![Hasil Output](screenshots/balanceofakun1.jpeg)
+
+Setelah berhasil melakukan tansfer pada bagian balanceof masukan alamat akun 2 dan klik balanceof saldo yang sebelumnya 10 setelah menerima transfer sebesar 10 kini telah bertambah menjadi 20.
+
+![Hasil Output](screenshots/transferakun2.jpeg)
+
+Lalu kita coba melakukan transfer dari akun 2 ke akun 1 dengan masuk ke deployed akun 2. Pilih menu transfer dan masukan alamat akun 1 lalu klik transact jika berhasil maka pada bagian terminal akan muncul centang hijau seperti pada gambar diatas yang menandakan transfer berhasil dilakakukan.
+
+![Hasil Output](screenshots/akun2berhasiltransfer.jpeg)
+
+Kita coba cek apakah saldo pada akun 1 telah bertambah dengan pilih menu balanceof pada akun 2 dan masukan alamat akun 1 lalu klik balance of. Pada bagian nilai yang sebelumnya 5 telah bertambah menjadi 7 karena telah menerima transfer dari akun 1 sebesar 2 nilai.
 
 ---
 
@@ -128,25 +150,22 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+
+Dari praktikum TinyCoin yang telah dilakukan, dapat disimpulkan bahwa smart contract ERC20 berhasil dibuat dan dijalankan dengan baik. Proses deploy, pengecekan saldo, dan transfer token dapat dilakukan sesuai dengan fungsi yang ada pada ERC20. Penggunaan library OpenZeppelin membantu meminimalkan kesalahan dan membuat kontrak lebih aman saat diimplementasikan.
 
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
+
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
+ 
 ```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+week15-tinycoin-erc20
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2026-01-25
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+   week15-tinycoin-erc20 : TinyCoin ERC20
 ```
