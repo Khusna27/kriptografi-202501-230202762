@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - EduToken</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        body { background: #0d1117; color: white; }
+        .sidebar { background: #161b22; height: 100vh; width: 260px; position: fixed; border-right: 1px solid #8a2be2; padding: 25px; }
+        .sidebar a { color: #8b949e; text-decoration: none; display: block; padding: 12px; margin-bottom: 10px; border-radius: 10px; }
+        .sidebar a:hover, .active { background: #30363d; color: #00f2ff; }
+        .main { margin-left: 280px; padding: 50px; }
+        .stat-card { background: #161b22; border: 1px solid #00f2ff; padding: 30px; border-radius: 20px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h3 class="text-info mb-4">EduToken</h3>
+        <a href="/dashboard" class="active">🏠 Dashboard</a>
+        <a href="/materi">📚 Materi & Kuis</a>
+        <a href="/info_token">💎 Info Token</a>
+        <a href="/profil">👤 Profil</a>
+        <a href="/logout" class="mt-5 text-danger">🚪 Logout</a>
+    </div>
+    <div class="main">
+        <div class="stat-card">
+            <h2>Selamat Datang, {{ user }}!</h2>
+            <p>Ayo selesaikan modul kriptografi untuk mendapatkan token.</p>
+            <hr border-color="#30363d">
+            <h5>Saldo Wallet: <span id="dashBal" class="text-info">0</span> EDU</h5>
+        </div>
+    </div>
+    <script>
+        async function getDashBal() {
+            if (window.ethereum) {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const accounts = await provider.send("eth_requestAccounts", []);
+                const contract = new ethers.Contract("0x00f89381E559375738c48b5A0E7eB7F5BfD3146b", ["function balanceOf(address) view returns (uint256)"], provider);
+                const bal = await contract.balanceOf(accounts[0]);
+                document.getElementById('dashBal').innerText = ethers.utils.formatUnits(bal, 18);
+            }
+        }
+        window.onload = getDashBal;
+    </script>
+</body>
+</html>

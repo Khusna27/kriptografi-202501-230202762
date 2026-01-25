@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Modul Belajar - EduToken</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        :root { --neon-blue: #00f2ff; --neon-purple: #8a2be2; --dark-bg: #0d1117; }
+        body { background: var(--dark-bg); color: white; font-family: 'Segoe UI', sans-serif; }
+        .content { padding: 40px; max-width: 850px; margin: auto; }
+        
+        /* Card Materi */
+        .materi-card { 
+            background: #161b22; 
+            border: 1px solid var(--neon-blue); 
+            padding: 35px; 
+            border-radius: 15px; 
+            margin-bottom: 30px; 
+            position: relative; 
+        }
+        
+        .locked { opacity: 0.4; pointer-events: none; filter: grayscale(1) blur(3px); }
+        .lock-overlay { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            color: var(--neon-blue); font-weight: bold; z-index: 10; display: none; text-align: center; 
+        }
+        .locked .lock-overlay { display: block; }
+        
+        /* Quiz Area */
+        .quiz-zone { background: #1c2128; border: 2px solid var(--neon-purple); padding: 30px; border-radius: 15px; display: none; }
+        .timer-bar { height: 6px; background: var(--neon-blue); width: 100%; transition: width 1s linear; margin-bottom: 20px; border-radius: 10px; }
+        
+        .btn-neon { 
+            background: linear-gradient(90deg, #00f2ff, #8a2be2); 
+            border: none; color: white; font-weight: bold; padding: 12px; border-radius: 10px; 
+            text-transform: uppercase; transition: 0.3s;
+        }
+        .btn-neon:hover { opacity: 0.9; transform: scale(1.02); box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); }
+        
+        .btn-option { text-align: left; margin-bottom: 12px; border: 1px solid #30363d; color: white; background: transparent; transition: 0.2s; width: 100%; padding: 12px; }
+        .btn-option:hover { border-color: var(--neon-blue); background: rgba(0, 242, 255, 0.1); }
+        .token-label { color: var(--neon-blue); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="text-center mb-5">
+            <h2 style="color: var(--neon-blue); font-weight: bold;">🎓 Modul EduToken</h2>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a href="/dashboard" class="btn btn-outline-secondary">← Dashboard</a>
+            <div class="badge bg-dark border border-info p-2">Saldo: <span id="userBalance" class="text-info">0</span> <span id="tokenSym" class="token-label">...</span></div>
+        </div>
+
+        <div id="materi1_box" class="materi-card">
+            <h3 class="text-info mb-4">Materi 1: Kriptografi</h3>
+            <p>Kriptografi adalah ilmu dan teknik untuk mengamankan informasi agar hanya dapat dibaca oleh pihak yang berwenang[cite: 12].</p>
+            <p>Tujuan utama kriptografi meliputi[cite: 13]:</p>
+            <ol>
+                <li>Kerahasiaan (Confidentiality)</li>
+                <li>Integritas data (Integrity)</li>
+                <li>Autentikasi (Authentication)</li>
+                <li>Non-repudiation</li>
+            </ol>
+            <p>Dalam sistem digital modern, kriptografi digunakan pada: Website HTTPS, Sistem login, Transaksi digital, serta Blockchain dan cryptocurrency[cite: 13].</p>
+            <p>Pada aplikasi EduToken, kriptografi digunakan untuk mengamankan data pengguna dan transaksi token digital[cite: 13].</p>
+            <button class="btn btn-neon w-100 mt-3" onclick="startQuiz(1)">MULAI KUIS 1</button>
+        </div>
+
+        <div id="materi2_box" class="materi-card locked">
+            <div class="lock-overlay">🔒 BUTUH 10 EDU</div>
+            <h3 class="text-info mb-4">Materi 2: Hashing</h3>
+            <p>Hashing adalah proses mengubah data dengan panjang variabel menjadi nilai tetap menggunakan fungsi hash[cite: 9].</p>
+            <p>Ciri-ciri fungsi hash kriptografi[cite: 10]:</p>
+            <ul>
+                <li>1. Output memiliki panjang tetap</li>
+                <li>2. Sulit dikembalikan ke data asli (one-way)</li>
+                <li>3. Perubahan kecil pada data menghasilkan hash yang sangat berbeda</li>
+                <li>4. Konsisten untuk input yang sama</li>
+            </ul>
+            <p>Algoritma hash yang digunakan pada aplikasi EduToken adalah <strong>SHA-256</strong>[cite: 10].</p>
+            <p>Hashing digunakan untuk: Menyimpan password pengguna dan menjaga integritas data transaksi[cite: 11].</p>
+            <button class="btn btn-neon w-100 mt-3" onclick="startQuiz(2)">MULAI KUIS 2</button>
+        </div>
+
+        <div id="materi3_box" class="materi-card locked">
+            <div class="lock-overlay">🔒 BUTUH 20 EDU</div>
+            <h3 class="text-info mb-4">Materi 3: Token Digital</h3>
+            <p>Token digital merupakan representasi nilai dalam sistem digital yang dapat dipindahkan antar pengguna[cite: 14].</p>
+            <p>Pada sistem EduToken[cite: 15]:</p>
+            <ul>
+                <li>Setiap pengguna memiliki wallet</li>
+                <li>Token diperoleh sebagai reward edukasi</li>
+                <li>Token dapat ditransfer ke pengguna lain</li>
+            </ul>
+            <p>Setiap transaksi token dicatat dalam bentuk data yang kemudian di-hash menggunakan SHA-256[cite: 15]. Jika data transaksi diubah, maka nilai hash akan berubah[cite: 16]. Hal ini menunjukkan konsep integritas data untuk mendeteksi perubahan ilegal[cite: 16].</p>
+            <button class="btn btn-neon w-100 mt-3" onclick="startQuiz(3)">MULAI KUIS 3</button>
+        </div>
+
+        <div id="quiz_container" class="quiz-zone">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 id="soalHeader" class="text-info m-0">Soal 1 / 5</h5>
+                <span id="timerText" class="badge bg-danger p-2">20s</span>
+            </div>
+            <div class="timer-bar" id="timerBar"></div>
+            <div id="soalList"></div>
+        </div>
+
+        <div id="resultArea" class="quiz-zone text-center">
+            <h3 class="text-info">Kuis Selesai!</h3>
+            <h4 id="scoreDetail" class="text-white mt-3">Benar: 0/5</h4>
+            <h2 id="tokenText" class="text-warning my-4">Reward: 0 EDU</h2>
+            <button id="claimBtn" class="btn btn-neon w-100 mb-2" onclick="claimToken()">KLAIM KE WALLET</button>
+            <button class="btn btn-outline-light w-100" onclick="location.reload()">KEMBALI</button>
+        </div>
+    </div>
+
+    <script>
+        // Sesuai dengan alamat kontrak di profil.html & info_token.html
+        const contractAddress = "0x00f89381E559375738c48b5A0E7eB7F5BfD3146b"; 
+        const abi = [
+            "function balanceOf(address account) view returns (uint256)",
+            "function symbol() view returns (string)",
+            "function claimReward(address student, uint256 amount) public"
+        ];
+
+        let activeModule, currentStep, timer, correctAnswers;
+        const allQuestions = {
+            1: [
+                {q: "Apa tujuan menjaga kerahasiaan data?", a: ["Confidentiality", "Integritas", "Autentikasi", "Kapasitas"], c: 0},
+                {q: "Kriptografi pada EduToken mengamankan?", a: ["Hardware", "Data & Transaksi", "Internet", "Layar"], c: 1},
+                {q: "Contoh kriptografi modern?", a: ["Buku", "HTTPS", "Radio", "TV"], c: 1},
+                {q: "Apa arti Integrity?", a: ["Kerahasiaan", "Keutuhan Data", "Kecepatan", "Kerapian"], c: 1},
+                {q: "Siapa yang berwenang membaca informasi terenkripsi?", a: ["Semua orang", "Pihak berwenang", "Hacker", "Provider"], c: 1}
+            ],
+            2: [
+                {q: "Hashing mengubah data menjadi nilai?", a: ["Acak", "Tetap", "Hilang", "Besar"], c: 1},
+                {q: "Sifat hash sulit dibalik disebut?", a: ["One-way", "Two-way", "Symmetry", "Asymmetry"], c: 0},
+                {q: "Algoritma hash EduToken?", a: ["MD5", "SHA-1", "SHA-256", "AES"], c: 2},
+                {q: "Hash digunakan untuk menyimpan?", a: ["Foto", "Password", "Lagu", "Film"], c: 1},
+                {q: "Input yang sama menghasilkan hash yang?", a: ["Berbeda", "Konsisten/Sama", "Acak", "Kosong"], c: 1}
+            ],
+            3: [
+                {q: "Token EduToken diperoleh sebagai reward?", a: ["Pinjaman", "Edukasi", "Hadiah", "Pajak"], c: 1},
+                {q: "Jika data transaksi berubah, hash akan?", a: ["Tetap", "Berubah", "Mengecil", "Sama"], c: 1},
+                {q: "Mendeteksi perubahan data menunjukkan konsep?", a: ["Integritas", "Kapasitas", "Input", "Output"], c: 0},
+                {q: "Tempat menyimpan token digital?", a: ["Bank", "Wallet", "Saku", "Disk"], c: 1},
+                {q: "Transaksi di-hash menggunakan?", a: ["Excel", "SHA-256", "Word", "Buku"], c: 1}
+            ]
+        };
+
+        async function updateBalance() {
+            if (window.ethereum) {
+                try {
+                    const provider = new ethers.providers.Web3Provider(window.ethereum);
+                    const contract = new ethers.Contract(contractAddress, abi, provider);
+                    const accounts = await provider.send("eth_requestAccounts", []);
+                    const balance = await contract.balanceOf(accounts[0]);
+                    const sym = await contract.symbol();
+                    const bal = Math.floor(ethers.utils.formatUnits(balance, 18));
+                    
+                    document.getElementById('userBalance').innerText = bal;
+                    document.getElementById('tokenSym').innerText = sym;
+
+                    if (bal >= 10) document.getElementById('materi2_box').classList.remove('locked');
+                    if (bal >= 20) document.getElementById('materi3_box').classList.remove('locked');
+                } catch (e) { console.error(e); }
+            }
+        }
+
+        function startQuiz(m) {
+            activeModule = m; currentStep = 1; correctAnswers = 0;
+            document.querySelectorAll('.materi-card').forEach(el => el.style.display = 'none');
+            document.getElementById('quiz_container').style.display = 'block';
+            renderSoal(); startTimer();
+        }
+
+        function renderSoal() {
+            const data = allQuestions[activeModule][currentStep - 1];
+            document.getElementById('soalHeader').innerText = `Soal ${currentStep} / 5`;
+            let html = `<h5 class="mb-4">${data.q}</h5>`;
+            ['A', 'B', 'C', 'D'].forEach((lbl, i) => {
+                html += `<button class="btn btn-option w-100" onclick="setAnswer(${i})">${lbl}. ${data.a[i]}</button>`;
+            });
+            document.getElementById('soalList').innerHTML = html;
+        }
+
+        function startTimer() {
+            let left = 20; clearInterval(timer);
+            timer = setInterval(() => {
+                left--;
+                document.getElementById('timerText').innerText = left + "s";
+                document.getElementById('timerBar').style.width = (left/20*100) + "%";
+                if (left <= 0) { setAnswer(-1); }
+            }, 1000);
+        }
+
+        function setAnswer(idx) {
+            if (idx === allQuestions[activeModule][currentStep - 1].c) correctAnswers++;
+            if (currentStep < 5) { currentStep++; renderSoal(); startTimer(); }
+            else { showResult(); }
+        }
+
+        function showResult() {
+            clearInterval(timer);
+            document.getElementById('quiz_container').style.display = 'none';
+            document.getElementById('resultArea').style.display = 'block';
+            document.getElementById('scoreDetail').innerText = `Benar: ${correctAnswers}/5`;
+            document.getElementById('tokenText').innerText = `Reward: ${correctAnswers * 2} EDU`;
+        }
+
+        async function claimToken() {
+            const btn = document.getElementById('claimBtn');
+            try {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
+                const contract = new ethers.Contract(contractAddress, abi, signer);
+                
+                btn.disabled = true;
+                btn.innerText = "Konfirmasi...";
+
+                const rewardAmount = (correctAnswers * 2).toString();
+                const tx = await contract.claimReward(
+                    await signer.getAddress(), 
+                    ethers.utils.parseUnits(rewardAmount, 18)
+                );
+                
+                await tx.wait();
+
+                // Sinkron ke database profil [cite: 4]
+                await fetch('/record-claim', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        activity: "Kuis Materi " + activeModule,
+                        amount: correctAnswers * 2,
+                        txHash: tx.hash
+                    })
+                });
+
+                alert("Berhasil Klaim!");
+                location.reload(); 
+            } catch (e) { 
+                alert("Gagal: " + e.message); 
+                btn.disabled = false;
+                btn.innerText = "KLAIM KE WALLET";
+            }
+        }
+
+        window.onload = updateBalance;
+    </script>
+</body>
+</html>

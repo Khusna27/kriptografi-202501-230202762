@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Info Token - EduToken</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        body { background: #0d1117; color: white; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .box { background: #161b22; border: 1px solid #00f2ff; padding: 40px; border-radius: 20px; width: 420px; text-align: center; }
+        .bal-card { background: rgba(0,242,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 25px; }
+        .btn-neon { background: linear-gradient(90deg, #00f2ff, #8a2be2); border: none; color: white; font-weight: bold; width: 100%; padding: 12px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3 class="text-info mb-4">💎 Info & Transfer</h3>
+        <div class="bal-card">
+            <small class="text-muted">SALDO DOMPET</small>
+            <div class="h2" id="val">0.00</div>
+            <div id="sym" class="text-info">...</div>
+        </div>
+        <input type="text" id="target" class="form-control mb-2" style="background:#0d1117; color:white; border-color:#333;" placeholder="Alamat Penerima 0x...">
+        <input type="number" id="amt" class="form-control mb-3" style="background:#0d1117; color:white; border-color:#333;" placeholder="Jumlah Token">
+        <button class="btn btn-neon" onclick="transfer()">KIRIM TOKEN</button>
+        <a href="/dashboard" class="d-block mt-3 text-muted small" style="text-decoration:none;">← Kembali</a>
+    </div>
+    <script>
+        const contractAddress = "0x00f89381E559375738c48b5A0E7eB7F5BfD3146b";
+        const abi = ["function balanceOf(address account) view returns (uint256)", "function transfer(address to, uint256 v) public returns (bool)", "function symbol() view returns (string)"];
+        
+        async function load() {
+            if (window.ethereum) {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const accounts = await provider.send("eth_requestAccounts", []);
+                const contract = new ethers.Contract(contractAddress, abi, provider);
+                document.getElementById('val').innerText = ethers.utils.formatUnits(await contract.balanceOf(accounts[0]), 18);
+                document.getElementById('sym').innerText = await contract.symbol();
+            }
+        }
+        async function transfer() {
+            const t = document.getElementById('target').value;
+            const a = document.getElementById('amt').value;
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const contract = new ethers.Contract(contractAddress, abi, signer);
+            const tx = await contract.transfer(t, ethers.utils.parseUnits(a, 18));
+            await tx.wait(); alert("Berhasil Terkirim!"); location.reload();
+        }
+        window.onload = load;
+    </script>
+</body>
+</html>
