@@ -47,6 +47,7 @@ Dengan melakukan analisis serangan kriptografi , pengembang dapat mengetahui kel
 4. Mengimplementasikan fungsi dictionary attack untuk mencocokkan hash MD5 hasil kebocoran dengan daftar password pada file dictionary.txt.
 5. Menjalankan program melalui terminal menggunakan perintah python my_space_simulasi.py.
 6. Mencatat hasil keluaran (output) ketika password berhasil ditemukan melalui proses dictionary attack.
+7. Membuat folder screenshot di `praktikum/week14-analisis serangan' untuk meng aploud hasil kode yang telah dijalankan.
 
 ---
 
@@ -143,17 +144,20 @@ Waktu eksekusi           : 0.0049 detik
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
+Hasil eksekusi program my_space_simulasi.py : 
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+![Hasil Eksekusi](screenshots/hasilmyspace.PNG)
+
+Hasil dan Pembahasan : 
+
+MySpace mengalami kebocoran data besar yang terungkap sekitar tahun 2016, di mana ratusan juta akun pengguna bocor ke publik. Data yang bocor berisi hash password yang sebagian besar disimpan tanpa salt dan menggunakan algoritma hash yang cepat dihitung. Kondisi ini memungkinkan penyerang melakukan offline password cracking tanpa batasan percobaan.
+
+Jenis serangan yang digunakan adalah dictionary attack dan brute force attack. Vektor serangan berasal dari kebocoran database hash password MySpace, sehingga penyerang dapat mencocokkan hash secara offline menggunakan berbagai kombinasi password umum.
+
+erdasarkan hasil simulasi yang dilakukan menggunakan kode Python, seluruh akun pada database simulasi berhasil ditemukan password aslinya dalam waktu yang relatif singkat. Hasil ini menunjukkan bahwa penggunaan algoritma hash yang cepat tanpa salt sangat rentan terhadap serangan dictionary attack, terutama jika pengguna menggunakan password yang sederhana dan umum.
+
+Kelemahan utama pada sistem terletak pada pemilihan algoritma kriptografi yang tidak dikhususkan untuk pengamanan password serta tidak adanya penerapan salt pada proses hashing. Selain itu, tidak terdapat mekanisme perlindungan tambahan setelah terjadinya kebocoran data. Oleh karena itu, kasus MySpace membuktikan bahwa permasalahan keamanan lebih disebabkan oleh kelemahan algoritma dan implementasi sistem, bukan hanya kesalahan dari sisi pengguna.
 
 ---
 
@@ -172,25 +176,26 @@ Jawaban :
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+
+Praktikum ini menunjukkan bahwa penyimpanan password menggunakan hash tanpa salt dan algoritma yang cepat sangat tidak aman, karena memungkinkan penyerang melakukan pemecahan password secara offline dengan mudah. Kasus MySpace membuktikan bahwa kelemahan utama terletak pada desain dan implementasi sistem keamanan, bukan hanya pada pengguna.
+
+Untuk mencegah kasus seperti MySpace, sistem sebaiknya menggunakan algoritma hashing khusus password seperti bcrypt, scrypt, atau Argon2 dengan penerapan salt pada setiap password. Selain itu, diperlukan kebijakan password yang kuat dan peningkatan keamanan sistem agar risiko kebocoran data dapat diminimalkan.
 
 ---
 
 ## 9. Daftar Pustaka
-(Cantumkan referensi yang digunakan.  
-Contoh:  
+
 - Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
 - Stallings, W. *Cryptography and Network Security*.  )
 
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+```
+week14-analisis-serangan
+Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
+Date:   2026-01-25
+
+   week14-analisis-serangan : Analisis Serangan Kriptografi
 ```
