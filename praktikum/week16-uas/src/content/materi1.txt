@@ -1,0 +1,15 @@
+Kriptografi adalah ilmu dan teknik untuk mengamankan informasi agar hanya dapat dibaca oleh pihak yang berwenang.
+
+Tujuan utama kriptografi meliputi:
+1. Kerahasiaan (Confidentiality)
+2. Integritas data (Integrity)
+3. Autentikasi (Authentication)
+4. Non-repudiation
+
+Dalam sistem digital modern, kriptografi digunakan pada:
+- Website HTTPS
+- Sistem login
+- Transaksi digital
+- Blockchain dan cryptocurrency
+
+Pada aplikasi EduToken, kriptografi digunakan untuk mengamankan data pengguna dan transaksi token digital.

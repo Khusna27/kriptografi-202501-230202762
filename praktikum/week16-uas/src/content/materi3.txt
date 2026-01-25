@@ -1,0 +1,11 @@
+Token digital merupakan representasi nilai dalam sistem digital yang dapat dipindahkan antar pengguna.
+
+Pada sistem EduToken:
+- Setiap pengguna memiliki wallet
+- Token diperoleh sebagai reward edukasi
+- Token dapat ditransfer ke pengguna lain
+
+Setiap transaksi token dicatat dalam bentuk data yang kemudian di-hash menggunakan SHA-256.
+Jika data transaksi diubah, maka nilai hash akan berubah.
+
+Hal ini menunjukkan konsep integritas data, di mana kriptografi digunakan untuk mendeteksi perubahan data secara tidak sah.

@@ -1,0 +1,13 @@
+Hashing adalah proses mengubah data dengan panjang variabel menjadi nilai tetap menggunakan fungsi hash.
+
+Ciri-ciri fungsi hash kriptografi:
+1. Output memiliki panjang tetap
+2. Sulit dikembalikan ke data asli (one-way)
+3. Perubahan kecil pada data menghasilkan hash yang sangat berbeda
+4. Konsisten untuk input yang sama
+
+Algoritma hash yang digunakan pada aplikasi EduToken adalah SHA-256.
+
+Hashing digunakan untuk:
+- Menyimpan password pengguna
+- Menjaga integritas data transaksi
