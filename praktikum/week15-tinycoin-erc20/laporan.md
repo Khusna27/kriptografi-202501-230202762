@@ -1,20 +1,27 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 15
+Topik: Proyek Kelompok – TinyCoin ERC20
+Nama:Khusnatun Lina Fitri
+NIM: 230202762
+Kelas: 5IKRB
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+
+1. Mengembangkan proyek sederhana berbasis algoritma kriptografi.
+2. Mendokumentasikan proses implementasi proyek ke dalam repository Git.
+3. Menyusun laporan teknis hasil proyek akhir.
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+
+TinyCoin merupakan token digital yang dibangun di atas blockchain Ethereum dengan menggunakan standar ERC-20. Ethereum menyediakan platform terdesentralisasikan yang mendukung eksekusi smart contract, yaitu program yang berjalan otomatis di jaringan blockchain. Dengan smart contract, seluruh transaksi TinyChoin dicatat secara transparan, aman, dan tidak dapat diubah, sehingga tidak memerlukan pihak ketiga sebagai perantara.
+
+Standar ERC-20 mendefinisikan fungsi dasar seperti transfer, balance0f, dan totalSupply agar token dapat digunakan secara luas pada ekosistem Ethereum termasuk wallet dan aplikasi terdesentralisasi. Dengan mengikuti standar ini, TinyChoin menjadi kompatibel dengan berbagai layanan blockchain tanpa perlu penyesuaian tambahan.
+
+TinyCoin digunakan sebagai token pembelajaran untuk memahami konsep dasar kriptografi dan blockchain, khususnya pengelolaan aset digital berbasis smart contract. Melalui implementasi TinyCoin ERC-20, pengguna dapat mempelajari proses pembuatan token, pengiriman aset digital, serta pentingnya keamanan smart contract dalam menjaga keandalan sistem blockchain.
 
 ---
 
@@ -36,15 +43,57 @@ Contoh format:
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
 
-```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
+### Langkah 1 - Mmebuat Kontrak ERC-20.
+
+Membuat file dengan nama TinyCoin.sol diremix ide.
 ```
-)
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract TinyCoin {
+
+    // =========================
+    // Informasi Token
+    // =========================
+    string public name = "TinyCoin";
+    string public symbol = "TNC";
+    uint8 public decimals = 18;
+    uint256 public totalSupply;
+
+    // =========================
+    // Penyimpanan Saldo
+    // =========================
+    mapping(address => uint256) public balanceOf;
+
+    // =========================
+    // Event (standar ERC20)
+    // =========================
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    // =========================
+    // Constructor
+    // =========================
+    constructor(uint256 initialSupply) {
+        totalSupply = initialSupply * 10 ** uint256(decimals);
+        balanceOf[msg.sender] = totalSupply;
+    }
+
+    // =========================
+    // Fungsi Transfer
+    // =========================
+    function transfer(address to, uint256 amount) public returns (bool) {
+        require(balanceOf[msg.sender] >= amount, "Saldo tidak cukup");
+        require(to != address(0), "Alamat tidak valid");
+
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+
+        emit Transfer(msg.sender, to, amount);
+        return true;
+    }
+}
+```
 
 ---
 
@@ -64,10 +113,18 @@ Hasil eksekusi program Caesar Cipher:
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+
+1. Apa fungsi utama ERC20 dalam ekosistem blockchain?  
+2. Bagaimana mekanisme transfer token bekerja dalam kontrak ERC20?  
+3. Apa risiko utama dalam implementasi smart contract dan bagaimana cara mitigasinya?
+
+Jawaban :
+
+1. ERC20 berfungsi sebagai standar pembuatan token di blockchain Ethereum. Dengan adanya standar ini, token yang dibuat bisa digunakan dan dikenali oleh berbagai wallet, exchange, dan aplikasi berbasis blockchain tanpa perlu penyesuaian tambahan. ERC20 memudahkan pengembang dalam membuat token dan memastikan token tersebut kompatibel dengan ekosistem Ethereum.
+
+2.Transfer token pada ERC20 dilakukan menggunakan fungsi transfer. Ketika fungsi ini dijalankan, sistem akan mengecek saldo pengirim terlebih dahulu. Jika saldo mencukupi, maka saldo pengirim akan dikurangi dan saldo penerima akan ditambahkan sesuai jumlah token yang dikirim. Semua transaksi ini dicatat di blockchain sehingga transparan dan tidak bisa diubah.
+
+3. Risiko utama dalam smart contract biasanya berasal dari kesalahan penulisan kode atau logika program yang kurang tepat, sehingga bisa dimanfaatkan oleh pihak lain. Untuk mengurangi risiko tersebut, pengembang dapat menggunakan library yang sudah terpercaya seperti OpenZeppelin, memakai versi Solidity terbaru, serta melakukan pengujian dan audit sebelum smart contract dijalankan di jaringan utama.
 ---
 
 ## 8. Kesimpulan
