@@ -1,9 +1,9 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 16
+Topik: UAS KRIPTOGRAFI EDUTOKEN
+Nama: Khusnatun Lina Fitri  
+NIM: 230202762
+Kelas: 5IKRB
 
 ---
 
