@@ -81,7 +81,7 @@ EduToken merupakan platform pembelajaran yang mengintegrasikan konsep kriptograf
 
 ### 6. Tampilan Konfirmasi Klaim Token Pada Metamask
 
-![Hasil Output](screenshots/tampilanklaimtoken.png)
+![Hasil Output](screenshots/klaimtokenmetamask.jpeg)
 - Lalu pada bagian pop up Metamask klik Confirm supaya token dapat diklaim.
 
 ### 7.  Tampilan Notifikasi Berhasil Klaim Token
@@ -123,7 +123,7 @@ EduToken merupakan platform pembelajaran yang mengintegrasikan konsep kriptograf
 
 ## 6. Hasil dan Pembahasan
 
-    Berdasarkan praktikum yang telah dilakukan, sistem EduToken berhasil diimplementasikan dan berjalan sesuai dengan tujuan. Pengguna dapat login, menghubungkan wallet MetaMask, mengakses materi, mengerjakan kuis, serta menerima reward berupa token EDU yang berhasil dikirim ke wallet melalui transaksi blockchain pada jaringan Ethereum Sepolia Testnet. Hasil praktikum menunjukkan bahwa integrasi aplikasi web dengan blockchain berjalan dengan baik, serta penerapan konsep kriptografi seperti kriptografi asimetris, fungsi hash, dan digital signature dapat diamati secara langsung. Melalui praktikum ini, mahasiswa memperoleh pemahaman yang lebih nyata mengenai penerapan kriptografi, meskipun sistem masih memiliki keterbatasan karena berjalan pada jaringan testnet dan bergantung pada keamanan wallet pengguna.
+Berdasarkan praktikum yang telah dilakukan, sistem EduToken berhasil diimplementasikan dan berjalan sesuai dengan tujuan. Pengguna dapat login, menghubungkan wallet MetaMask, mengakses materi, mengerjakan kuis, serta menerima reward berupa token EDU yang berhasil dikirim ke wallet melalui transaksi blockchain pada jaringan Ethereum Sepolia Testnet. Hasil praktikum menunjukkan bahwa integrasi aplikasi web dengan blockchain berjalan dengan baik, serta penerapan konsep kriptografi seperti kriptografi asimetris, fungsi hash, dan digital signature dapat diamati secara langsung. Melalui praktikum ini, mahasiswa memperoleh pemahaman yang lebih nyata mengenai penerapan kriptografi, meskipun sistem masih memiliki keterbatasan karena berjalan pada jaringan testnet dan bergantung pada keamanan wallet pengguna.
 
 Berikut merupakan kelebihan dan kekurangan sistem EduToken :
 
@@ -165,7 +165,8 @@ Berdasarkan seluruh tahapan perancangan, pengembangan, dan pengujian yang telah 
 ## 10. Commit Log
 
 ```
-commit week16-UAS KRIPTOGRAFI EDUTOKEN
+commit week16 - UAS KRIPTOGRAFI EDUTOKEN
+
 Author: Khusnatun Lina Fitri <husnatunlinafitri@gmail.com>
 Date:   2026-01-25
 
