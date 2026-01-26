@@ -115,9 +115,6 @@ Berdasarkan praktikum ini dapat diismpulkan bahwa website Shopee telah menerapka
 
 ## 9. Daftar Pustaka
   
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
-
 ---
 
 ## 10. Commit Log
