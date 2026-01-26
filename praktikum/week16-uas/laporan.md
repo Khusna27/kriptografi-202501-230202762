@@ -157,8 +157,6 @@ Berdasarkan seluruh tahapan perancangan, pengembangan, dan pengujian yang telah 
 
 ## 9. Daftar Pustaka
 
-- Katz, J., & Lindell, Y. *Introduction to Modern Cryptography*.  
-- Stallings, W. *Cryptography and Network Security*.  )
 
 ---
 
